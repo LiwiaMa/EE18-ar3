@@ -5,22 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Biblioteket</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 </head>
 <body>
-    
-    <div class="container-top">
-        <nav><img id="nti" src="./bilder/ntiLogoWhite.jpg" alt="nti"></nav>
-        <h1>Skolbiblioteket</h1>
-    </div>
-    <div class="container-bottom">
-        <div class="vertical">
-            <h2>Välkommna till NTI-Biblioteket</h2>
-            <div>Öppen tider</div>
+    <div class="container">
+        <div class="container-top">
+            <nav><a href="https://www.ntigymnasiet.se/stockholm/"><img id="nti" src="./bilder/nti_logo.svg" alt="nti"></a>
+            </nav>
+            <div class="head">
+                <h1 class="ml1">
+                    <span class="text-wrapper">
+                        <span class="line line1"></span>
+                        <span class="letters">Skolbiblioteket</span>
+                        <span class="line line2"></span>
+                    </span>
+                </h1>
+            </div>
         </div>
-        <div>
-            <h3>Bok nyheter</h2>
+        <div class="container-bottom">
+            <div class="vertical">
+                <h2 class="info">Välkommna <br> till NTI-Biblioteket</h2>
+                <div class="tider">Öppet</div>
+            </div>
+            <div class="side">
+                <h3>Nya böcker</h2>
+            </div>
         </div>
     </div>
-    
+    <script>
+        var textWrapper = document.querySelector('.ml1 .letters');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({ loop: true })
+            .add({
+                targets: '.ml1 .letter',
+                scale: [0.3, 1],
+                opacity: [0, 1],
+                translateZ: 0,
+                easing: "easeOutExpo",
+                duration: 600,
+                delay: (el, i) => 70 * (i + 1)
+            }).add({
+                targets: '.ml1 .line',
+                scaleX: [0, 1],
+                opacity: [0.5, 1],
+                easing: "easeOutExpo",
+                duration: 700,
+                offset: '-=875',
+                delay: (el, i, l) => 300 * (l - i)
+            }).add({
+                targets: '.ml1',
+                opacity: 0,
+                duration: 1000,
+                easing: "easeOutExpo",
+                delay: 5000
+            });
+    </script>
+
 </body>
 </html>
