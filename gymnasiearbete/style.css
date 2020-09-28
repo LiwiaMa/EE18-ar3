@@ -30,6 +30,7 @@ body {
   text-decoration: underline;
   cursor: pointer;
   text-transform: uppercase;
+  color: #fff;
 }
 
 .container-top ul li {
