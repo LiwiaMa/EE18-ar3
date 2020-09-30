@@ -23,26 +23,30 @@
                 </nav>
             </div>
         </header>
-            <div class="head">
-                <h1 class="ml1">
-                    <span class="text-wrapper">
-                        <span class="line line1"></span>
-                        <span class="letters">Skolbiblioteket</span>
-                        <span class="line line2"></span>
-                    </span>
-                </h1>
-            </div>
+            <main>
+                <div class="head">
+                    <h1 class="ml1">
+                        <span class="text-wrapper">
+                            <span class="line line1"></span>
+                            <span class="letters">Skolbiblioteket</span>
+                            <span class="line line2"></span>
+                        </span>
+                    </h1>
+                </div>
         </div>
-        <div class="container-bottom">
-            <div class="vertical">
-                <h2 class="info">Välkommna <br> till NTI-Biblioteket</h2>
-                <h3>Öppet</h3>
+            <div class="container-bottom">
+                <div class="vertical">
+                    <h2 class="info">Välkommna till NTI-Biblioteket</h2>
+                    <div>
+                        <h3>Öppen tider</h3>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4>Nya böcker</h4>
+                </div>
             </div>
-            <div class="side">
-                <h4 class="box">Nya böcker</h4>
-            </div>
-        </div>
-    </div>
+            </main>
+    
     <script>
         var textWrapper = document.querySelector('.ml1 .letters');
         textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");

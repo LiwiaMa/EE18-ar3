@@ -18,6 +18,11 @@ header {
     display: flex;
     flex-direction: column;
 }
+
+a {
+    text-decoration: none;
+}
+/* Top */
 .container{
     background-image: url("./bilder/book.jpg");
     background-color: #C26BFF;
@@ -31,13 +36,22 @@ header {
 }
 
 .container-bottom {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    height: 100%;
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.vertical{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.container-top li a:hover {
+.container-top ul a:hover {
     text-decoration: underline;
     cursor: pointer;
-    text-transform: uppercase;
     color: #fff;
 }
 
@@ -49,19 +63,20 @@ header {
     padding: 0 10px;
 }
 
+
 /* .container-top .meny {
     padding: 0 10px 10px 900px;
     margin-top: auto;
 } */
 
-.box {
+h4 {
     font-size: 25px;
     color: rgb(116, 112, 112);
 }
 
 .top {
-    width: 1600px;
-    background-image: linear-gradient(-45deg, #dd0890 0, indigo 100%);
+    width: 100%;
+    background-image: linear-gradient(-45deg, #d82ca4 0, rgb(76, 0, 130) 100%);
 }
 /* /*background-image: linear-gradient(-45deg,#dd0890 0,indigo 100%);
  */
@@ -90,16 +105,15 @@ h1 {
 .info {
     font-size: 55px;
     color: rgb(76, 50, 95);
-    padding: 50px 0 0 150px;
 }
-.side {
+.box {
+    box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 5px 5px 5px 5px rgb(200, 194, 204);
-    width: 300px;
-    margin: 100px 100px 0 400px;
-    height: 150px;
-    padding: 30px;
-    font-size: 20px;
+    height: 100%;
+    width: 30%;
+    background: rgba(242, 157, 245, 0.24);
+    padding: 20px;
     text-align: center;
 }
 h3 {
