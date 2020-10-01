@@ -37,7 +37,7 @@ a {
 .container-top nav {
     display: flex;
     justify-content: space-between;
-    padding: 30px;
+    padding: 10px;
 }
 
 .container-bottom {
@@ -61,11 +61,78 @@ a {
 
 .container-top ul li {
     display: inline;
-    font-size: 28px;
+    font-size: 25px;
     color: #fff;
     text-align: right;
     padding: 0 10px;
 }
+
+/* inloggning */
+.inloggningsBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(78, 76, 76, 0.5);
+    border-radius: 10px;
+}
+.inloggningsBox h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: purple;
+    text-align: center;
+}
+.inloggningsBox .inputBox {
+    position: relative;
+}
+.inloggningsBox .inputBox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000;
+    letter-spacing: 1px ;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    background: transparent;
+}
+.inloggningsBox .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000;
+    pointer-events: none;
+    transition: .5s;
+}
+.inloggningsBox .inputBox input:focus ~ label, .inloggningsBox .inputBox input:valid ~ label {
+    top: -18px;
+    left: 0;
+    color: purple;
+    font-size: 12px;
+}
+.inloggningsBox input[type="submit"] {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: purple;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.inloggningsBox input[type="submit"]:hover {
+    background-color: rgb(155, 1, 155);
+    color: rgb(211, 117, 211);
+}
+
 
 
 /* .container-top .meny {
@@ -110,7 +177,7 @@ h1 {
     font-size: 55px;
     color: rgb(76, 50, 95);
 }
-.box {
+/* .box {
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 5px 5px 5px 5px rgb(183, 182, 184);
@@ -120,8 +187,8 @@ h1 {
     background: rgb(255, 255, 255);
     padding: 20px;
     text-align: center;
-}
-input[type = text] {
+} 
+    input[type="text"], input[type="password"] {
     border-radius: 10px;
     border: 2px solid #aaa;
     outline: none;
@@ -136,7 +203,7 @@ input[type = text] {
     padding: 10px;
 }
 
-input[type = text]:focus {
+input[type="text"]:focus, input[type="password"]:focus {
     border-color: rgb(173, 107, 199);
     box-shadow: 0 0 9px 0 rgb(173, 107, 199);
 }
@@ -159,7 +226,7 @@ h3 {
     font-size: 40px;
     color: red;
     margin: 50px 0 0 300px;
-}
+} */
 
 /* js */
 .ml1 {
