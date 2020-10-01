@@ -177,7 +177,7 @@ h1 {
     font-size: 55px;
     color: rgb(76, 50, 95);
 }
-/* .box {
+ .box {
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 5px 5px 5px 5px rgb(183, 182, 184);
@@ -188,6 +188,7 @@ h1 {
     padding: 20px;
     text-align: center;
 } 
+/*
     input[type="text"], input[type="password"] {
     border-radius: 10px;
     border: 2px solid #aaa;
