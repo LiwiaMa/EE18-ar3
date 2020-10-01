@@ -12,6 +12,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul {
 body {
     width: auto;
     height: auto;
+    background-color: #F6F6F6;
 }
 header {
     height: 100px;
@@ -21,6 +22,10 @@ header {
 
 a {
     text-decoration: none;
+}
+.here a:active {
+    color: white;
+    opacity: 1;
 }
 /* Top */
 .container{
@@ -50,7 +55,6 @@ a {
 }
 
 .container-top ul a:hover {
-    text-decoration: underline;
     cursor: pointer;
     color: #fff;
 }
@@ -109,18 +113,55 @@ h1 {
 .box {
     box-sizing: border-box;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px 5px rgb(200, 194, 204);
+    box-shadow: 5px 5px 5px 5px rgb(183, 182, 184);
     height: 100%;
+    margin: 200px;
     width: 30%;
-    background: rgba(242, 157, 245, 0.24);
+    background: rgb(255, 255, 255);
     padding: 20px;
     text-align: center;
 }
+input[type = text] {
+    border-radius: 10px;
+    border: 2px solid #aaa;
+    outline: none;
+    height: 27px;
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 40px;
+    margin: 15px auto 7px auto;
+    box-sizing: border-box;
+    transition: 0.5s;
+    padding: 10px;
+}
+
+input[type = text]:focus {
+    border-color: rgb(173, 107, 199);
+    box-shadow: 0 0 9px 0 rgb(173, 107, 199);
+}
+
+button {
+    color: rgb(255, 255, 255);
+    background-color: rgb(212, 162, 223);
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+button:hover {
+    border-color: rgb(173, 107, 199);
+    color: purple;
+    background-color: rgb(189, 93, 184);
+}
+
 h3 {
     font-size: 40px;
     color: red;
     margin: 50px 0 0 300px;
 }
+
+/* js */
 .ml1 {
     font-weight: 900;
     font-size: 4.5em;
@@ -156,4 +197,11 @@ h3 {
 }
 .ml1 .line2 {
     bottom: 0;
+}
+
+/* Main */
+main{
+    height: auto;
+    display: flex;
+    justify-content: center;
 }
