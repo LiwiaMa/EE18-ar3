@@ -15,18 +15,12 @@ body {
     background-color: #F6F6F6;
 }
 header {
-    height: 100px;
+    height: auto;
     display: flex;
     flex-direction: column;
 }
 
-a {
-    text-decoration: none;
-}
-.here a:active {
-    color: white;
-    opacity: 1;
-}
+
 /* Top */
 .container{
     background-image: url("./bilder/book.jpg");
@@ -34,10 +28,10 @@ a {
     background-blend-mode: multiply;
     filter: brightness(70%);
 }
-.container-top nav {
+nav {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 15px;
 }
 
 .container-bottom {
@@ -54,14 +48,19 @@ a {
     align-items: center;
 }
 
-.container-top ul a:hover {
+header a {
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(218, 218, 218);
+}
+header a:hover {
     cursor: pointer;
     color: #fff;
 }
 
-.container-top ul li {
+header ul li {
     display: inline;
-    font-size: 25px;
+    font-size: 28px;
     color: #fff;
     text-align: right;
     padding: 0 10px;
@@ -135,7 +134,7 @@ a {
 
 
 
-/* .container-top .meny {
+/* header .meny {
     padding: 0 10px 10px 900px;
     margin-top: auto;
 } */
@@ -152,25 +151,10 @@ h4 {
 /* /*background-image: linear-gradient(-45deg,#dd0890 0,indigo 100%);
  */
 h1 {
-    /* display: inline-block;
-    margin: 50px 600px ;
-    color: white;
-    font-size: 50px; */
     font-size: 50px;
     color: white;
     text-align: center;
 
-}
-/* Sträck runt div */
-/* .head {
-    width: 600px;
-    margin: 100px 0 0 450px;
-    height: 150px;
-    padding: 40px;
-    border: 7px dashed rgb(255, 255, 255);
- } */
-.container-top .nti {
-    display: block;
 }
 
 .info {
@@ -179,13 +163,13 @@ h1 {
 }
  .box {
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 5px 5px 5px 5px rgb(183, 182, 184);
     height: 100%;
-    margin: 200px;
+    margin: 100px;
     width: 30%;
     background: rgb(255, 255, 255);
-    padding: 20px;
+    padding: 50px;
     text-align: center;
 } 
 /*
@@ -272,4 +256,34 @@ main{
     height: auto;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.box-two{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    margin-top: 20px;
+}
+.grey-box {
+    padding: 20px;
+    border-radius: 20px;
+    background: rgb(207, 207, 207);
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+}
+.right{
+    width: 30%;
+    border-left: solid rgb(163, 163, 163) 2px;
+    text-align: left;
+    padding: 5px;
+}
+h2{
+    color: black;
+    font-size: 30px;
+}
+p{
+    font-size: 20px;
 }
