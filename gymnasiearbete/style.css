@@ -27,11 +27,13 @@ header {
     background-color: #C26BFF;
     background-blend-mode: multiply;
     filter: brightness(70%);
+    transform: translateZ(-1px);
 }
 nav {
     display: flex;
     justify-content: space-between;
     padding: 15px;
+    margin-bottom: 50px;
 }
 
 .container-bottom {
@@ -41,6 +43,10 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    
+    /* parallax */    
+    transform: translateZ(0);
+      
 }
 .vertical{
     display: flex;
@@ -166,7 +172,7 @@ h1 {
     border-radius: 15px;
     box-shadow: 5px 5px 5px 5px rgb(183, 182, 184);
     height: 100%;
-    margin: 100px;
+    margin: 50px;
     width: 30%;
     background: rgb(255, 255, 255);
     padding: 50px;
@@ -273,6 +279,7 @@ main{
     display: flex;
     justify-content: space-between;
     height: auto;
+    margin-bottom: 20px;
 }
 .right{
     width: 30%;
