@@ -13,7 +13,7 @@
         <form action="exempel-3-1-b.php" method="POST">
             <label for="anamn">Användarnamn</label>
             <input id="anamn" class="form-control" type="text" name="anamn">
-            <label for="lösen">Ange tal 2</label>
+            <label for="lösen">Lösenord</label>
             <input id="lösen" class="form-control" type="text" name="lösen">
             <button type="submit" class="btn btn-primary">Logga in</button>
         </form>
