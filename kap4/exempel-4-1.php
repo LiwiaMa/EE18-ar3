@@ -81,7 +81,7 @@
     foreach ($länder as $land) {
         echo "<tr>";
         echo "<td> $land</td>";
-        echo "<tr>";
+        echo "</tr>";
     }
     echo "</table>";
 
@@ -95,7 +95,7 @@
         echo "<tr>";
         echo "<td> $key</td>";
         echo "<td> $instrument</td>";
-        echo "<tr>";
+        echo "</tr>";
     }
     echo "</table>";
 

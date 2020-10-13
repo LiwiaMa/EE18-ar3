@@ -26,7 +26,7 @@
             <label for="email">Ange din mail</label>
             <input type="email" name="email">
             <label for="meddelande">Ange ditt meddelande</label>
-            <textarea name="meddelande" id="meddelande" cols="30" rows="10"></textarea>
+                <textarea name="meddelande" id="meddelande" cols="30" rows="10"></textarea>
             <button type="submit" class="btn btn-primary">Skicka</button>
         </form>
 
