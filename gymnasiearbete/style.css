@@ -33,7 +33,6 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 15px;
-    margin-bottom: 50px;
 }
 
 .container-bottom {
@@ -61,13 +60,19 @@ header a {
 }
 header a:hover {
     cursor: pointer;
-    color: #fff;
 }
 
 header ul li {
     display: inline;
     font-size: 28px;
-    color: #fff;
+    color: rgb(230, 227, 231);
+    text-align: right;
+    padding: 0 10px;
+}
+header ul li:hover {
+    display: inline;
+    font-size: 28px;
+    color: rgb(255, 255, 255);
     text-align: right;
     padding: 0 10px;
 }
@@ -126,16 +131,17 @@ header ul li {
     background: transparent;
     border: none;
     outline: none;
-    color: #fff;
-    background: purple;
+    color: purple;
+    background: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+    border: 1px solid purple;
 }
 
 .inloggningsBox input[type="submit"]:hover {
-    background-color: rgb(155, 1, 155);
-    color: rgb(211, 117, 211);
+    background-color: purple;
+    color: white;
 }
 
 
@@ -152,7 +158,7 @@ h4 {
 
 .top {
     width: 100%;
-    background-image: linear-gradient(-45deg, #d82ca4 0, rgb(76, 0, 130) 100%);
+    background: linear-gradient(0deg, rgba(105,1,133,1) 26%, rgba(182,19,153,1) 100%);
 }
 /* /*background-image: linear-gradient(-45deg,#dd0890 0,indigo 100%);
  */
