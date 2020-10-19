@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+
+body {
+    background: rgb(255, 255, 255) url("./bilder/darya-kraplak-d34DtRp1bqo-unsplash.jpg");
+    background-size: cover;
+    background-attachment: cover;
+}
+
+.kontainer {
+    background: rgba(68, 67, 67, 0.781);
+    width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(68, 67, 67, 0.938);
+}
+header {
+    margin-bottom: 40px;
+}
+h1 {
+    font-family: 'Fredoka One', cursive;
+}
+nav {
+    margin: 10px 0;
+}
+main p {
+    background: #48bbb1cc;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+    color: black;
+}
+main form {
+    margin: 20px;
+}
+main button {
+    margin: 10px 0;
+}
+.form-control {
+    background-color: #828788b4;
+}
