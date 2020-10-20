@@ -38,12 +38,19 @@
             </footer>
 
             <?php
-            // Ta emot data från formuläret
+     /*        // Ta emot data från formuläret
             if (isset($_POST["inlagg"])) {
 
                 // Skapa intern variabel med datat
-                $texten = $_POST["inlagg"];
+                $texten = $_POST["inlagg"]; */
 
+                //Läs in från formuläret och rensa från hot (skyddar mot faror, hack, osv)
+                $texten = filter_input(INPUT_POST, "inlagg", FILTER_SANITIZE_STRING);
+
+                //om vi får data
+                if (is_writable($filnamn)) { 
+                    
+               
                 // Förbered texten för HTML-utskrift
                 $textenMedBr = str_replace("\n", "<br>", $texten);
 
@@ -54,20 +61,33 @@
                 $filnamn = "blogg.txt";
 
                 // Steg 1: Öppna textfilen för att skriva
-                $handtag = fopen($filnamn, "a");
+                if (!$handtag = fopen($filnamn, "a")) {
+                    echo "<p class=\alert alert-warning\">kan inte öppna filen ($filnamn)</p>"; 
+                    exit;
+                } 
 
                 // Skriv texten 
-                fwrite($handtag, "<p>$datumstämpel <br>$textenMedBr </p>\n");
+                if (fwrite($handtag, "<p>$datumstämpel <br>$textenMedBr </p>\n") == FALSE) {
+                    echo "<p class=\alert alert-warning\">kan inte skriva till filen ($filnamn)</p>";
+                    exit;
+                }
+                echo "<p>Success, wrote ($texten) to file ($filnamn)</p>";
 
+                fclose($handtag);
+            
+            } else {
+                echo "<p class=\alert alert-warning\">The file $filnamn is not writable</p>"; 
+            }
+                
+/* 
                 // Steg 3: Sräng ned anslutningen
                 fclose($handtag);
 
 
                 // Skriv ut en bekräftelse
                 echo "<p class=\"alert alert-success\" role=\"alert\">Inlägget har sparats</p>";
-            } else {
-
-            }
+            } */ 
+        
             
             ?>
     </div>
