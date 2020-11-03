@@ -25,6 +25,11 @@ h2{
     color: white;
     text-decoration: none;
 }
+.container {
+    display: flex;
+    flex-direction: column;
+
+}
 .logo {
     margin: 0;
 }
@@ -98,7 +103,7 @@ main .content {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-evenly;
+    align-items: center;
 }
 
 main .content .main-title {
@@ -140,9 +145,7 @@ main .content .wrapperbtn button a{
     color: white;
 }
 @media (min-width:1100px) {
-    main .content {
-        flex-direction: row;
-    }
+   
     main .content .main-title {
         font-size: 40px;
         max-width: none;
