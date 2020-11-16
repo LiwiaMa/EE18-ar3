@@ -28,11 +28,12 @@ body {
    
     
 }
-.kol4 {
+/* .kol4 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
-}
+*/
+
 
 h1, h2, h3 {
     color: #9c813d;
