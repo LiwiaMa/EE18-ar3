@@ -40,6 +40,4 @@ while ($rad = $result->fetch_assoc()){
 // Stäng ned anslutningen 
 $conn->close();
 
-
-
 ?>

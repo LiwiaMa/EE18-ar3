@@ -22,29 +22,28 @@
 <div class="kontainer">
         <h1>Beräkna kostnaden</h1>
         <form action="#" method="POST">
-            <label for="lon">Ange lön 1</label>
-            <input id="lon" class="form-control" type="text" name="ett">
-            <label for="lon">Ange lön 2</label>
-            <input id="lon" class="form-control" type="text" name="tva">
-            <label for="lon">Ange lön 3</label>
-            <input id="lon" class="form-control" type="text" name="tre">
+            <label for="dagar">Ange hur många dagar du vill hyra bilen</label>
+            <input id="dagar" class="form-control" type="text" name="dagar">
+            <label for="kilometer">Ange hur många kilometer man vill köra</label>
+            <input id="kilometer" class="form-control" type="text" name="kilometer">
             <button type="submit" class="btn btn-primary">Skicka</button>
         </form>
         <?php
 
         //Ta empt data som skickas
-        if (isset($_POST["ett"], $_POST["tva"],  $_POST["tre"])) {
+        if (isset($_POST["dagar"], $_POST["kilometer"])) {
             //Ta emot data från formuläret
-            $lonEtt = $_POST["ett"];
-            $lonTva = $_POST["tva"];
-            $lonTre = $_POST["tre"];
-
-            $summa = $lonEtt + $lonTva + $lonTre / 3;
+            $dagar = $_POST["dagar"];
+            $kilometer = $_POST["kilometer"];
             
-            
+            $merDagar = $dagar * 400;
+            $merKilometer = $kilometer * 5;
+            $totalt = $merDagar + $merKilometer;
 
-            echo "<p>Den totala hyran är" . round($summa) . "kr</p>";
+            echo "<p>Den totala hyran är $totalt kr</p>";
            
+            
+
          }
         ?>
     </div>
