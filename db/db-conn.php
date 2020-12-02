@@ -27,7 +27,7 @@ $result = $conn->query($sql);
 
 // Gick sql satsen att köra?
 if (!$result) {
-    die("Något blev fel ,ed sql-satsen")
+    die("Något blev fel ,ed sql-satsen");
 } else {
     echo "<p> Lista på alla bilar kunde hämtas</p>";
 }
@@ -40,4 +40,3 @@ while ($rad = $result->fetch_assoc()){
 // Stäng ned anslutningen 
 $conn->close();
 
-?>
