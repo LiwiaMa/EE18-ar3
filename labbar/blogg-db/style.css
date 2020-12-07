@@ -13,22 +13,23 @@ body, h1, h2, h3, h4, h5, h6, p, ul {
 }
 
 body {
-    background: #F9F6EB;
+    background-image: url("./bilder/photo-1446825597988-2bb4dfd264ac.jpg");
+    background-size: cover;
 }
 .kontainer {
     width: 600px;
     padding: 2em;
     margin: 3em auto;
-    background: #fff;
+    background: rgba(24, 23, 23, 0.712);
     border-radius: 5px;
     font-family: 'Open Sans', sans-serif;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 12px #f0e9d1;
+    border: 1px solid orangered;
+    box-shadow: 0 0 12px orangered;
     color: #4e4e4e;
 }
 
 h1, h2, h3 {
-    color: #9c813d;
+    color: #D88435;
 }
 h1, h2, h3, p {
     margin: 0.5em 0;
@@ -41,8 +42,8 @@ form {
     margin: 1em 0;
     padding: 1em;
     font-size: 0.9em;
-    color: #4e4e4e;
-    background: #E6F2F8;
+    color: orangered;
+    background: #5b5d5e;
     border-radius: 0.3em;
 }
 form label {
@@ -56,9 +57,11 @@ form input, form textarea {
     margin-top: -0.4em;
     font-style: italic;
     border-radius: 0.3em;
-    border: 2px solid #55a5d2;
+    border: 2px solid #D88435;
     box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1);
+    background-color: rgb(107, 106, 106);
 }
+
 form textarea {
     height: 10em;
 }
@@ -69,7 +72,10 @@ form button {
     border: none;
     font-weight: bold;
     color: #FFF;
-    background-color: #55a5d2;
+    background-color: #d88435;
+} 
+form button:hover {
+    background-color: orangered;
 }
 
 table {
@@ -82,7 +88,7 @@ table th, table td {
     text-align: left;
 }
 table th {
-    background: #305A85;
+    background: #D88435;
     color: #FFF;
 }
 table tr:nth-child(even) {
@@ -92,5 +98,31 @@ table tr:nth-child(odd) {
     background: #FFF;
 }
 table .fa {
-    color: #55a5d2;
+    color: #D88435;
+}
+.inlägg {
+    background: #d88435;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 30px;
+    color: black;
+}
+.nav-link {
+    background-color: rgb(51, 50, 49);
+    color: orangered;
+    border-color: orangered;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    background: rgb(63, 62, 61);
+    color: rgb(209, 82, 36);
+    border-color: orangered;
+}
+.nav-link:hover {
+    background-color: rgb(51, 50, 49);
+    color: rgb(224, 64, 6);
+    border-color: orangered;
+}
+.nav-tabs {
+    border-bottom: 1px solid orangered;
 }
