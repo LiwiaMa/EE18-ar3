@@ -23,7 +23,7 @@ include "./resurser/conn.php";
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="nav-link active " href="./lasa.php">Läsa</a></li>
                 <li class="nav-item"><a class="nav-link " href="./skriva.php">Skriva</a></li>
-                <li class="nav-item"><a class="nav-link" href="./sok.php">Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="./sok.php">Sök</a></li>
             </ul>
         </nav>
         <?php
