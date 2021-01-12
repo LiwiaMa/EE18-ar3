@@ -5,7 +5,7 @@
  * @category   Inloggning
  * @author     Liwia Matuszczak <liwiamatuszczak.@gmail.com>
  * @license    PHP CC
- */ 
+ */
 include "./resurser/conn.php";
 ?>
 <!DOCTYPE html>
@@ -19,6 +19,14 @@ include "./resurser/conn.php";
 </head>
 <body>
     <div class="kontainer">
+    <nav>
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active " href="./registrera.php">Registrera</a></li>
+                <li class="nav-item"><a class="nav-link " href="./login.php">Logga in</a></li>
+                <li class="nav-item"><a class="nav-link" href="./lista.php">Lista</a></li>
+                <li class="nav-item"><a class="nav-link" href="./logout.php">Logga ut</a></li>
+            </ul>
+        </nav>
         <header>
             <h1>Inloggning</h1>
         </header>
@@ -43,26 +51,31 @@ include "./resurser/conn.php";
         // Kontrollera om data finns
         if ($fnamn && $enamn && $anamn && $lösen1 && $lösen2) {
 
-            // Kontrollera om lösenordet matchar
-            if ($lösen1 == $lösen2) {
+            // @TODO kontrollera att användarnamnet inte redan finns!
+            $sql = "SELECT * FROM user WHERE anamn = '$anamn'";
+            $result = $conn->query($sql);
 
-                // @TODO kontrollera att användarnamnet inte redan finns!
-                // var_dump($fnamn && $enamn && $anamn && $lösen1 && $lösen2);
-
-                //Räkna ut hash på lösenordet
-                $hash = password_hash($lösen1, PASSWORD_DEFAULT);
-
-                $sql = "INSERT INTO user ( fnamn, enamn, anamn, hash) VALUES ('$fnamn', '$enamn', '$anamn', '$hash')";
-
-                // Kör sql satsen
-                $conn->query($sql);
-                echo "<p class=\"alert alert-success\">Användaren registrerad</p>";
-
-                // Stäng ned anslutningen
-                $conn->close();
-
+            // Om användarnamnet  finns går vidare skriv ut en varning
+            if ($result->num_rows != 0) {
+                echo "<p class=\"alert alert-warning\">Användarnamnet finns redan, försök igen</p>";
             } else {
-                echo "<p class=\"alert alert-warning\">Lösenorden matchar inte, försök igen</p>";
+                // Kontrollera om lösenordet matchar
+                if ($lösen1 == $lösen2) {
+
+                    //Räkna ut hash på lösenordet
+                    $hash = password_hash($lösen1, PASSWORD_DEFAULT);
+
+                    $sql = "INSERT INTO user ( fnamn, enamn, anamn, hash) VALUES ('$fnamn', '$enamn', '$anamn', '$hash')";
+
+                    // Kör sql satsen
+                    $conn->query($sql);
+                    echo "<p class=\"alert alert-success\">Användaren registrerad</p>";
+
+                    // Stäng ned anslutningen
+                    $conn->close();
+                } else {
+                    echo "<p class=\"alert alert-warning\">Lösenorden matchar inte, försök igen</p>";
+                }
             }
         }
         ?>
