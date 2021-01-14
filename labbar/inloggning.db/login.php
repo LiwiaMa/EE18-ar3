@@ -20,12 +20,16 @@ session_start();
 </head>
 <body>
     <div class="kontainer">
-    <nav>
+        <nav>
             <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link  " href="./registrera.php">Registrera</a></li>
-                <li class="nav-item"><a class="nav-link active" href="./login.php">Logga in</a></li>
-                <li class="nav-item"><a class="nav-link" href="./lista.php">Lista</a></li>
-                <li class="nav-item"><a class="nav-link" href="./logout.php">Logga ut</a></li>
+            <?php if (isset($_SESSION["anamn"])) { ?>
+                    <li class="nav-item"><a class="nav-link" href="./logout.php">Logga ut</a></li>
+                    <li class="nav-item"><a class="nav-link " href="./lista.php">Lista</a></li>
+                   
+                <?php } else { ?>
+                    <li class="nav-item"><a class="nav-link active" href="./login.php">Logga in</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
+                <?php } ?>
             </ul>
         </nav>
         <header>
@@ -44,14 +48,14 @@ session_start();
         $lösen = filter_input(INPUT_POST, "lösen", FILTER_SANITIZE_STRING);
 
         // Kontrollera om data finns
-        if ( $anamn && $lösen) {
-             // Finns användaren i tabellen?
-             $sql = "SELECT * FROM user WHERE anamn = '$anamn'";
-             $result = $conn->query($sql);
+        if ($anamn && $lösen) {
+            // Finns användaren i tabellen?
+            $sql = "SELECT * FROM user WHERE anamn = '$anamn'";
+            $result = $conn->query($sql);
 
-             if ($result->num_rows == 0) {
+            if ($result->num_rows == 0) {
                 echo "<p class=\"alert alert-warning\">Användaren finns redan</p>";
-             } else {
+            } else {
 
                 // Plocka ut hashet för användaren
                 $rad = $result->fetch_assoc();
@@ -61,12 +65,15 @@ session_start();
                     // Inloggad
                     echo "<p class=\"alert alert-success\">Du är inloggad</p>";
                     $_SESSION["anamn"] = $anamn;
+
+                    // Hoppa till sidan lista
+                    header("Location: ./lista.php");
                 } else {
                     //Fel
                     echo "<p class=\"alert alert-warning\">Lösenordet stämmer inte</p>";
                 }
             }
-            }
+        }
         ?>
     </div>
 </body>
