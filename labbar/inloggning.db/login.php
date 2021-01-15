@@ -82,6 +82,7 @@ session_start();
                     $conn->query($sql);
                     // Skapa en sessionsvariabel
                      $_SESSION["antal"] = $antal;
+                     $_SESSION["username"] = $rad["anamn"];
 
                     // Hoppa till sidan lista
                     header("Location: ./lista.php");

@@ -36,7 +36,7 @@ include "./resurser/conn.php";
         </nav>
         <?php
         // 2. Ställ en SQL-fråga
-        $sql_b = "SELECT * FROM post";
+        $sql = "SELECT * FROM post";
         $result = $conn->query($sql);
 
         // Gick det bra?
@@ -55,6 +55,7 @@ include "./resurser/conn.php";
             echo "<h5>$rad[header] </h5>";
             echo "<h6> $rad[postText] </h6>";
             echo "<p> $rad[postDate]</p>";
+            echo "<p> $rad[username]</p>";
             echo "</div>";
         }
         ?>

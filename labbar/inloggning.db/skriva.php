@@ -10,7 +10,13 @@
 // Update = ändra
 // Select, Insert (lägga in), 
 // Include är att klistrar in det. Ungefär som css
-include "../resurser/conn.php";
+include "./resurser/conn.php";
+session_start();
+
+if (!isset($_SESSION["anman"])) {
+    header("Locatiob; ./login.php");
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -61,22 +67,18 @@ include "../resurser/conn.php";
         // mysql -> insert -> runrik och text -> copy php code
         // Sql satsen
        /*  $sql_a = "SELECT * FROM user"; */
-        $sql_b = "INSERT INTO post (header, postText, username) VALUES ('$header', '$postText', '$anamn')";
+        $sql = "INSERT INTO post (header, postText, username) VALUES ('$header', '$postText', '$_SESSION[username]')";
         
         // Steg 2: nu kör vi sql-saten
-       /*  $result_a = $conn->query($sql); */
-        $result_b = $conn->query($sql);
+        $result = $conn->query($sql);
 
         // Gick det bra att köra sql-satsen
-        if (!$result_b) {
+        if (!$result) {
             die("Något blev fel med SQL-satsen");
         } else {
-            echo "<p>Inlägget har registrerats</p>";
+            echo "<p class=\"alert alert-success\">Inlägget har registrerats</p>";
         }
 
-        $rad = $result->fetch_assoc();
-        $user = $rad['hash'];
-        
         // Steg 3: Stänga ned anslutningen
         $conn->close();
 

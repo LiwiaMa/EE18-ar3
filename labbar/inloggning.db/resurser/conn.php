@@ -15,6 +15,6 @@ $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     die("Kunde inte ansluta: " . $conn->error);
 } else {
-    echo "<p>Gick bra att ansluta till vårt databas</p>";
+    echo "<p class=\"anslut\">Gick bra att ansluta till vårt databas</p>";
 }
 
