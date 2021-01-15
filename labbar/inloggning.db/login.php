@@ -24,11 +24,16 @@ session_start();
             <ul class="nav nav-tabs">
             <?php if (isset($_SESSION["anamn"])) { ?>
                     <li class="nav-item"><a class="nav-link" href="./logout.php">Logga ut</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="./skriva.php">Skriv</a></li>
                     <li class="nav-item"><a class="nav-link " href="./lista.php">Lista</a></li>
+                   
                    
                 <?php } else { ?>
                     <li class="nav-item"><a class="nav-link active" href="./login.php">Logga in</a></li>
                     <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./lasa.php">Läs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./sok.php">Sök</a></li>
+
                 <?php } ?>
             </ul>
         </nav>
@@ -60,11 +65,23 @@ session_start();
                 // Plocka ut hashet för användaren
                 $rad = $result->fetch_assoc();
                 $hash = $rad['hash'];
+                /* var_dump($rad);
+                exit; */
                 // Kontrollera lösenordet
                 if (password_verify($lösen, $hash)) {
                     // Inloggad
                     echo "<p class=\"alert alert-success\">Du är inloggad</p>";
+                   
+                    // Skapa en sessionsvariabel
                     $_SESSION["anamn"] = $anamn;
+
+                    // Räkna antal
+                    $antal = $rad['antal'] + 1;
+                    //Registrera ny inloggning
+                    $sql = "UPDATE user SET antal = '$antal' WHERE id = $rad[id]";
+                    $conn->query($sql);
+                    // Skapa en sessionsvariabel
+                     $_SESSION["antal"] = $antal;
 
                     // Hoppa till sidan lista
                     header("Location: ./lista.php");

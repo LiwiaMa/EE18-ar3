@@ -27,6 +27,8 @@ include "./resurser/conn.php";
                 <?php } else { ?>
                     <li class="nav-item"><a class="nav-link" href="./login.php">Logga in</a></li>
                     <li class="nav-item"><a class="nav-link active" href="./registrera.php">Registrera</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./lasa.php">Läs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./sok.php">Sök</a></li>
                 <?php } ?>
             </ul>
         </nav>
