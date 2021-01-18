@@ -24,16 +24,15 @@ session_start();
             <ul class="nav nav-tabs">
             <?php if (isset($_SESSION["anamn"])) { ?>
                     <li class="nav-item"><a class="nav-link" href="./logout.php">Logga ut</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="./skriva.php">Skriv</a></li>
                     <li class="nav-item"><a class="nav-link " href="./lista.php">Lista</a></li>
-                   
-                   
+                    <li class="nav-item"><a class="nav-link " href="./skriva.php">Skriv</a></li>
+                    <li class="nav-item anamn"> <?php echo $_SESSION["anamn"] . " (". $_SESSION["antal"].")" ;?> 
+                </li>
                 <?php } else { ?>
                     <li class="nav-item"><a class="nav-link active" href="./login.php">Logga in</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
+                    <li class="nav-item"><a class="nav-link " href="./registrera.php">Registrera</a></li>
                     <li class="nav-item"><a class="nav-link" href="./lasa.php">Läs</a></li>
                     <li class="nav-item"><a class="nav-link" href="./sok.php">Sök</a></li>
-
                 <?php } ?>
             </ul>
         </nav>
@@ -82,7 +81,7 @@ session_start();
                     $conn->query($sql);
                     // Skapa en sessionsvariabel
                      $_SESSION["antal"] = $antal;
-                     $_SESSION["username"] = $rad["anamn"];
+                     $_SESSION["user_id"] = $rad["id"];
 
                     // Hoppa till sidan lista
                     header("Location: ./lista.php");

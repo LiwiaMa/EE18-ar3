@@ -36,7 +36,7 @@ include "./resurser/conn.php";
         </nav>
         <?php
         // 2. Ställ en SQL-fråga
-        $sql = "SELECT * FROM post";
+        $sql = "SELECT post.header, post.postText, post.postDate, user.fnamn, user.enamn, user.anamn FROM post JOIN user ON post.user_id=user.id ORDER BY postDate DESC";
         $result = $conn->query($sql);
 
         // Gick det bra?
@@ -55,7 +55,7 @@ include "./resurser/conn.php";
             echo "<h5>$rad[header] </h5>";
             echo "<h6> $rad[postText] </h6>";
             echo "<p> $rad[postDate]</p>";
-            echo "<p> $rad[username]</p>";
+            echo "<p> $rad[anamn]</p>";
             echo "</div>";
         }
         ?>

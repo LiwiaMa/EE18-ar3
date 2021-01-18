@@ -6,7 +6,7 @@
  * @author     Liwia Matuszczak <liwiamatuszczak.@gmail.com>
  * @license    PHP CC
  */
-include "../resurser/conn.php";
+include "./resurser/conn.php";
 session_start();
 // Om inte inloggad klickad till login.php
 if (!isset($_SESSION["anamn"])) {
@@ -26,16 +26,17 @@ if (!isset($_SESSION["anamn"])) {
     <div class="kontainer">
         <nav>
         <ul class="nav nav-tabs">
-                <?php if (isset($_SESSION["anamn"])) { ?>
-                    <li class="nav-item"><a class="nav-link" href="./logout.php">Logga ut</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="./lista.php">Lista</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./skriva.php">Skriv</a></li>
-                    <li class="nav-item anamn"> <?php echo $_SESSION["anamn"] . " (". $_SESSION["antal"].")" ;?> 
-                </li>
-                <?php } else { ?>
-                    <li class="nav-item"><a class="nav-link" href="./login.php">Logga in</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
-                <?php } ?>
+        <?php if (isset($_SESSION["anamn"])) { ?>
+                <li class="nav-item"><a class="nav-link active" href="./lista.php">Lista</a></li>
+                <li class="nav-item"><a class="nav-link" href="./skriva.php">Skriva</a></li>
+                <li class="nav-item"><a class="nav-link" href="./logout.php">Logga ut</a></li>
+                <li class="nav-item anamn"> <?php echo $_SESSION["anamn"] . " (". $_SESSION["antal"].")" ;?> </li>
+            <?php } else { ?>
+                <li class="nav-item"><a class="nav-link" href="./login.php">Logga in</a></li>
+                <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
+                <li class="nav-item"><a class="nav-link" href="./lasa.php">Läsa</a></li>
+                <li class="nav-item"><a class="nav-link" href="./sok.php">Sök</a></li>
+            <?php } ?>
                
                
             </ul>
@@ -79,8 +80,6 @@ if (!isset($_SESSION["anamn"])) {
                 }
 
                 echo "</table>";
-       
-
             ?>
             
         </main>

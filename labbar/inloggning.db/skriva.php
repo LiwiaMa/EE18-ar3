@@ -13,8 +13,8 @@
 include "./resurser/conn.php";
 session_start();
 
-if (!isset($_SESSION["anman"])) {
-    header("Locatiob; ./login.php");
+if (!isset($_SESSION["anamn"])) {
+    header("Location: ./login.php");
 
 }
 
@@ -33,18 +33,17 @@ if (!isset($_SESSION["anman"])) {
     <div class="kontainer">
     <nav>
     <ul class="nav nav-tabs">
-                <?php if (isset($_SESSION["anamn"])) { ?>
-                    <li class="nav-item"><a class="nav-link" href="./logout.php">Logga ut</a></li>
-                    <li class="nav-item"><a class="nav-link " href="./lista.php">Lista</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="./skriva.php">Skriv</a></li>
-                    <li class="nav-item anamn"> <?php echo $_SESSION["anamn"] . " (". $_SESSION["antal"].")" ;?> 
-                </li>
-                <?php } else { ?>
-                    <li class="nav-item"><a class="nav-link" href="./login.php">Logga in</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./lasa.php">Läs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./sok.php">Sök</a></li>
-                <?php } ?>
+    <?php if (isset($_SESSION["anamn"])) { ?>
+                <li class="nav-item"><a class="nav-link " href="./lista.php">Lista</a></li>
+                <li class="nav-item"><a class="nav-link active" href="./skriva.php">Skriva</a></li>
+                <li class="nav-item"><a class="nav-link" href="./logout.php">Logga ut</a></li>
+                <li class="nav-item anamn"> <?php echo $_SESSION["anamn"] . " (". $_SESSION["antal"].")" ;?> </li>
+            <?php } else { ?>
+                <li class="nav-item"><a class="nav-link" href="./login.php">Logga in</a></li>
+                <li class="nav-item"><a class="nav-link" href="./registrera.php">Registrera</a></li>
+                <li class="nav-item"><a class="nav-link" href="./lasa.php">Läsa</a></li>
+                <li class="nav-item"><a class="nav-link" href="./sok.php">Sök</a></li>
+            <?php } ?>
             </ul>
         </nav>
 </nav>
@@ -60,14 +59,13 @@ if (!isset($_SESSION["anman"])) {
     // Ta emot det som skickas
     $header = filter_input(INPUT_POST, 'header', FILTER_SANITIZE_STRING);
     $postText = filter_input(INPUT_POST, 'postText', FILTER_SANITIZE_STRING);
-    $usernamne = $_GET["usernamne"];
     // Om data finns...
     if ($header && $postText) {
         $_SESSION['anamn'] = $anamn;
         // mysql -> insert -> runrik och text -> copy php code
         // Sql satsen
        /*  $sql_a = "SELECT * FROM user"; */
-        $sql = "INSERT INTO post (header, postText, username) VALUES ('$header', '$postText', '$_SESSION[username]')";
+        $sql = "INSERT INTO post (header, postText, user_id) VALUES ('$header', '$postText', '$_SESSION[user_id]')";
         
         // Steg 2: nu kör vi sql-saten
         $result = $conn->query($sql);
