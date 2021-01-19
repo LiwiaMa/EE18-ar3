@@ -46,12 +46,29 @@ if (!isset($_SESSION["anamn"])) {
         </header>
         <main>
             <?php
-           
+          /*   if (isset($GET["id"])) {
+                $id = $GET["id"];
+                $result = $conn->query($sql);
+
+                // Gick det bra? Kunde SQL -satsen köras?
+                if (!$result) {
+                    die("Något blev fel med SQL-satsen");
+                } else {
+                    $rad = $result->fetch_assoc();
+                    echo "<p class=\"alert alert-dismissible alert-warning\">Vill du verkligen radera<strong>{$rad['fnamn']} {$rad['enamn']}</strong> från databasen? <a class=\"btn btn-danger\" href\"radera-db.php?={$rad['id']}\"> Bekräfta</a></p>";
+                }
+                
+            } else {
+                # code...
+            } */
+            
                 echo "<p class=\"alert alert-success\">Du är inloggad</p>"; 
                 
                 // Hämta användare i tabellen
-                $sql = "SELECT * FROM user";
+                $id = $_GET["id"];
+                $sql = "SELECT * FROM user WHERE id = '$id'";
                 $result = $conn->query($sql);
+                $rad = $result->fetch_assoc();
 
                 // Gick det bra?
                 if (!$result) {
@@ -60,32 +77,45 @@ if (!isset($_SESSION["anamn"])) {
                     echo "<p class=\"alert alert-success\" role=\"alert\">Hämtade " . $result->num_rows . " användare</p>";
                 }
 
-                // Steg 4: Stäng ned anslutningen till databasen
-                $conn->close();
-
-                // Presentera resultatet
 
                 echo "<table>";
                 echo    "<tr>
+                        <th></th>
                         <th> Förnamn</th> 
-                        <th> Efternamn</th>
-                        <th> Användarnamn</th> 
+                        <th> Efternamn</th> 
                         <th> Skapad</th> 
                         <th></th>
-                        <th></th>
+                        <th></th>   
                     </tr>";
-
-                while ($rad = $result->fetch_assoc()) {
+                    
+                    // Visa användare och fråga om man verkligen vill radera ett konto
                     echo "<tr>";
+                    echo "<td> Är du säker på att du vill radera ";
+                    echo  "<td> {$rad['fnamn']}</td>";
+                    echo  "<td> {$rad['anamn']}</td>";
+                    echo  "<td> {$rad['skapad']}</td>";
+                    echo "<form method=\"post\" action=\"#\">";
+                    echo "<td> <button type=\"submit\" name=\"deletebtn\" class=\"btn btn-outline-danger\"> Bekräfta </button></td>";
+                    echo "</form>";
+                    
+                    // if-sats för att radera användare
+                    if (isset($_POST['deletebtn'])) {
+                        $sql = "DELETE FROM user WHERE id = '$id'";
+                        $conn->query($sql);
 
-                    echo "<td>$rad[fnamn] </td>";
-                    echo "<td> $rad[enamn] </td>";
-                    echo "<td> $rad[anamn]</td>";
-                    echo "<td> $rad[skapad]</td>";
-                    echo "<td><a style=\"width=10px\" class=\"btn btn-outline-danger\" href=\"radera-verifera-db.php?id={$rad['id']}\"> Radera</a></td>";
-                    echo "<td><a class=\"btn btn-outline-warning\" href=\"redigera-db.php?id={$rad['id']}\"> Redigera</a></td>";
-                    echo "</tr>";
-                }
+                        if (!$result) {
+                            die("Något blev fel med SQL-satsen." . $conn->error);
+                        } else {
+                            echo "<p class=\"alert alert-success\" role=\"alert\">Användaren har raderats </p>";
+                        }
+
+                    }
+                // Steg 4: Stäng ned anslutningen till databasen
+
+                    $conn->close();
+                    echo "<td></td>";
+
+                  echo "</tr>";
 
                 echo "</table>";
             ?>
