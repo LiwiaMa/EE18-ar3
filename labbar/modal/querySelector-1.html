@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>querySelector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="kontainer">
+        <h1>Träna på läsa och ändra element på webbsidan</h1>
+
+        <h2>Input</h2>
+        <label>Ange förnamn <input class="fnamn" type="text"></label>
+        <button type="button">Skicka</button>
+
+        <h2>Output</h2>
+        <label>Svar <textarea class="svar"></textarea></label>
+    </div>
+    <script>
+        // Element vi använder
+        const eRutaFnamn = document.querySelector(".fnamn");
+        const eRutaSvar = document.querySelector(".svar");
+        const eKnapp = document.querySelector("button");
+
+        // Läs av innehållet i input-rutan
+        eKnapp.addEventListener("click", function () {
+            // Läsa av input-rutan (värdet = value)
+            var fnamn = eRutaFnamn.value;
+            console.log(fnamn);      
+
+            // Ge användaren ett svar
+            eRutaSvar.value = "Hej " + fnman;
+        });
+        if (eKnapp = "då") {
+            eRutaSvar = eKnapp; 
+        }
+
+
+    </script>
+</body>
+</html>
