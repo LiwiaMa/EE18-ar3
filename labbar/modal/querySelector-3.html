@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>querySelector() och value</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="kontainer">
+        <h1>Smileys</h1>
+        <h2>Input</h2>
+        <label>Ange text <input class="text" type="text"></label>
+        <button>Ny rad</button>
+        <button class="töm">Töm</button>
+        <br>
+
+        <button id="smiley">😀</button>
+        <button id="love">😍</button>
+        <button id="poo">💩</button>
+        <button id="heart">❤️</button>
+
+        <h2>Output</h2>
+        <label>Svar <textarea class="svar" cols="30" rows="10" readonly></textarea>
+        </label>
+    </div>
+    <script>
+        // Element som används
+       const eRutaText = document.querySelector("input");
+       const eKnapp = document.querySelector("button");
+       const eTöm = document.querySelector(".töm");
+       const eSmiley = document.querySelector("#smiley");
+       const eLove = document.querySelector("#love");
+       const ePoo = document.querySelector("#poo");
+       const eHeart = document.querySelector("#heart");
+       const eTextarea = document.querySelector("textarea");
+
+       // Något händer när man klickar på knappen
+       eKnapp.addEventListener("click", function() {
+           // Läsa av input
+           var text = eRutaText.value;
+
+           // Skriva i texten (+= är )
+           eTextarea.value += text + "\n "; // det betyder att lägga till värdet till det som finns, dvs eTextarea.value + text;
+            
+           //Töm input area
+           eRutaText.value = ""; // eller eRutaText.value = null;
+       })
+       eTöm.addEventListener("click", function() {
+           eTextarea.value = null;
+       }) 
+
+         // Lägg till smilisar
+         eSmiley.addEventListener("click", function(){
+             var smiley = "\n " + "😀";
+             eTextarea.value += smiley;
+         })
+
+         eLove.addEventListener("click", function(){
+             var love = "\n " + "😍";
+             eTextarea.value += love;
+         })
+         ePoo.addEventListener("click", function(){
+             var poo = "\n " + "💩";
+             eTextarea.value += poo;
+         })
+         eHeart.addEventListener("click", function(){
+             var heart = "\n " + "❤️";
+             eTextarea.value += heart;
+         })
+
+    </script>
+</body>
