@@ -41,14 +41,16 @@
             .then(response => response.json()) // Packa upp packetet
             .then(data => {                    // Nu gör vi något...
                 console.log(data.country);     // Vilket land är besökaren ifrån
-                console.log(data.city);     // Vilket land är besökaren ifrån
+                console.log(data.city);         // Vilket land är besökaren ifrån
+                eModalBody.innerHTML = '<p>${data.country}</p>';
+                                        '<p>${data.city}</p>';
             })
+            visaLand.show();
         }
         visaLand();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
     crossorigin="anonymous"></script>
-    <script src="./geoip.js"></script>
 </body>
 </html>

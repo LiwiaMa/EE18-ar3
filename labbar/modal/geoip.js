@@ -14,6 +14,6 @@ eGeoModal.addEventListener("show.bs.modal", function () {
     const eModalBody = eGeoModal.querySelector(".modal-body");
 
     // Ändra innehållet
-    eModalBody.innerHTML = visaLand();
+    eModalBody.innerHTML = eGeoModal, visaLand();
     
 });
