@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Points on a map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="mapbox.css">
+</head>
+<body>
+    <div id='map'></div>
+    <script>
+        // Min personlia access-token
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGlsZWswMiIsImEiOiJja2w2ZGw0dDMwaHluMnBreWl2NTRxMmxuIn0.58ExQ72kcfWOF4XKGaQIdQ'; // replace this with your access token
+
+        // Skapa kartan
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/lilek02/ckm1xkuom7xho17rz3jqq7jhn', // replace this with your style URL
+            center: [18.068581, 59.329323], // Longitude, Latitude
+            zoom: 10.7
+        });
+        //  Infoga en marker på kartan där jag bor
+        var popupHemma = new mapboxgl.Popup({ offset: 25 }).setHTML(
+            '<h3>Hemma</h3><p>Här bor jag 😎</p>'
+        );
+        var hemma = new mapboxgl.Marker()
+            .setLngLat([17.897418, 59.277537])
+            .setPopup(popupHemma)
+            .addTo(map);
+
+        //  Här för Domi
+        var popupDomi = new mapboxgl.Popup({ offset: 25 }).setText(
+            'Här bor Domi'
+            );
+
+        var domi = new mapboxgl.Marker()
+            .setLngLat([17.844487, 59.194703])
+            .setPopup(popupDomi)
+            .addTo(map);
+
+        // För Marti
+        var popupMarti = new mapboxgl.Popup({ offset: 25 }).setText(
+            'Här bor Marti'
+        );
+        var marti = new mapboxgl.Marker()
+            .setLngLat([17.94001, 59.400456])
+            .setPopup(popupMarti)
+            .addTo(map);
+
+        // För Mimi
+        var popupMimi = new mapboxgl.Popup({ offset: 25 }).setText(
+            'Här bor Mimi'
+        );
+        var mimi = new mapboxgl.Marker()
+            .setLngLat([17.837332, 59.243999])
+            .setPopup(popupMimi)
+            .addTo(map);
+
+            // För skolan
+        var popupSkola = new mapboxgl.Popup({ offset: 25 }).setHTML(
+            '<h3>Skolan</h3><p><img src="./bilder/NTI.png" alt="nti"> NTI Gymnasiet Stockholm </p>'
+        );
+        var skola = new mapboxgl.Marker()
+            .setLngLat([18.046187, 59.337511])
+            .setPopup(popupSkola)
+            .addTo(map);
+    </script>
+</body>
+</html>
