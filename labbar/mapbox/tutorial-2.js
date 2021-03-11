@@ -1,5 +1,8 @@
 // Hitta tabellen
 const eTable = document.querySelector('table');
+const eKnapp = document.querySelector("button");
+
+
 
 // Min personlia access-token
 mapboxgl.accessToken = 'pk.eyJ1IjoibGlsZWswMiIsImEiOiJja2w2ZGw0dDMwaHluMnBreWl2NTRxMmxuIn0.58ExQ72kcfWOF4XKGaQIdQ'; // replace this with your access token
@@ -22,12 +25,63 @@ map.on("click", function (e) {
 
     // Infoga rad i tabellen
     var newRow = eTable.insertRow();
-    newRow.insertCell().innerText = e.lngLat.lng;
-    newRow.insertCell().innerText = e.lngLat.lng;
-    newRow.insertCell().innerText = "...";
 
-    // @todo
-    // Textcellen är redierbar
-    
+    // Infogas Första cellen
+    // .. och skriver in latitude-texten
+    newRow.insertCell().innerText = e.lngLat.lng;
+
+    // Infogas andra cellen
+    // .. och skriver in longituden
+
+    newRow.insertCell().innerText = e.lngLat.lng;
+
+    // Infogas Tredje cellen
+    // .. och gör den redigerbar
+    // .. Skriver in en exempeltext
+
+    //newRow.insertCell().innerHTML = "<td><blockquote contenteditable=\"true\">Write Here</td>";
+    var lastCell = newRow.insertCell();
+    lastCell.contentEditable = "true";
+    lastCell.innerText = "...";
+
+
 });
+// Klick på knappen läser in alla koordinater från tabellen
+eKnapp.addEventListener("click", function() {
+    // Skriv ut innehållet av tabellen i loggen
+    // 1. Hitta första cellen
+    const eCell = document.querySelector("td");
+    // 2. Läs av innehållet
+    console.log(eCell.textContent);
+
+    // Hitta ALLA celler
+    const eCeller = document.querySelectorAll("td");
+
+    // Loopa igenom alla celler (läsa igenom de en och en) 
+    eCeller.forEach(cell => {
+        console.log(cell.innerText);
+
+        // Låtsas att vi har ett formulär
+        var formData = new FormData();
+        formData.append("texten", "Latitude->...");
+
+        // Skicka till backend
+        fetch("spara.php", {
+            method: "post",
+            body: formData
+        }) 
+            
+        // Skickar
+        .then(response => response.text()) // Tar emot svar
+    });
+
+    
+
+});
+
+
+
+
+    
+
 
