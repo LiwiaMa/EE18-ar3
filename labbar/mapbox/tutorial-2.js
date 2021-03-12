@@ -14,7 +14,7 @@ var map = new mapboxgl.Map({
     center: [18.068581, 59.329323], // Longitude, Latitude
     zoom: 10.7
 });
-// Lägga till markers när man klickar på kartan (function(e) betyder vart man klicksr, edn skickar med sig information)
+// Lägga till markers när man klickar på kartan (function(e) betyder vart man klickar, den skickar med sig information)
 map.on("click", function (e) {
     console.log("du har klickat på kartan", e.lngLat);
 
@@ -44,10 +44,10 @@ map.on("click", function (e) {
     lastCell.contentEditable = "true";
     lastCell.innerText = "...";
 
-
 });
+
 // Klick på knappen läser in alla koordinater från tabellen
-eKnapp.addEventListener("click", function() {
+eKnapp.addEventListener("click", function () {
     // Skriv ut innehållet av tabellen i loggen
     // 1. Hitta första cellen
     const eCell = document.querySelector("td");
@@ -57,31 +57,31 @@ eKnapp.addEventListener("click", function() {
     // Hitta ALLA celler
     const eCeller = document.querySelectorAll("td");
 
+    // Skapar en global variabel
+    var innehållet = "";
     // Loopa igenom alla celler (läsa igenom de en och en) 
     eCeller.forEach(cell => {
         console.log(cell.innerText);
 
-        // Låtsas att vi har ett formulär
-        var formData = new FormData();
-        formData.append("texten", "Latitude->...");
-
-        // Skicka till backend
-        fetch("spara.php", {
-            method: "post",
-            body: formData
-        }) 
-            
-        // Skickar
-        .then(response => response.text()) // Tar emot svar
+        innehållet += cell.innerText + " ";
+       
     });
 
-    
-
+    // Låtsas att vi har ett formulär (append = lägga till)
+        // Skapa ett paket med alla celler som ska skickas 
+        var formData = new FormData();
+        formData.append("texten", innehållet);
+    // Skicka till backend
+    fetch("spara.php", {
+        method: "post",
+        body: formData
+    })
+        .then(response => response.text()) // Tar emot svar
 });
 
 
 
 
-    
+
 
 

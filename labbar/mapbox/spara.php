@@ -7,8 +7,9 @@
     $handtag = fopen("places.txt", "w"); 
 
     // Skriv i filen
-    fwrite($handtag, "Longitude->Latitud->Texten");
-        
+    // Spara ned koordinater
+    fwrite($handtag, $texten." ". " \n");
+       
     // Stäng textfilen
     fclose($handtag);
     
