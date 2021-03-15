@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas grunder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas width="800" height="600"></canvas>
+    <script>
+        // Element vi använder
+        const eCanvas = document.querySelector("canvas");
+
+        // Slå på ritmotorn (ctx = pennan)
+        var ctx = eCanvas.getContext("2d"); 
+
+       
+        var moon = new Image();
+        var rocket = new Image();
+        
+        moon.src = "./bilder/moon-landscape-3.png";
+        rocket.src = "./bilder/Shrek.png";
+
+        var rocketX = 370, rocketY = 350;
+        var speed = 2;
+        // Animationsloop
+        function loopen() {
+            // Suddar ut canvas som finns bakom figuren som rör sig
+            ctx.clearRect(0, 0, 800, 600);
+
+            // Ritar ut figut
+            ctx.drawImage(moon, 0, 0);
+            ctx.drawImage(rocket, rocketX, rocketY);
+            
+            // Ändra/öka position i x-led
+            rocketY -= speed;
+
+            // öka hastigheten
+            speed += 0.01;
+            console.log(rocketY);
+            requestAnimationFrame(loopen);
+        }
+        loopen();       
+        
+    </script>
+</body>
+</html>

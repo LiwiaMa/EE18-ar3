@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas grunder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas width="800" height="600"></canvas>
+    <script>
+        // Element vi använder
+        const eCanvas = document.querySelector("canvas");
+
+        // Slå på ritmotorn (ctx = pennan)
+        var ctx = eCanvas.getContext("2d"); 
+
+       /*  // Rita en rektangel
+        ctx.fillStyle = "#DAC5A0";
+        ctx.fillRect(300, 250, 200, 100); */
+/* 
+        // Rita en tom fyrkant
+        ctx.strokeStyle = "grey";
+        ctx.lineWidth = "2";
+        ctx.strokeRect(100, 100, 50, 50); */
+
+        // Rita ut en bild
+        // Steg 1: ladda ned in bilden
+        var bild = new Image();
+        bild.src = "./bilder/Shreek.png";
+        var bild2 = new Image();
+        bild2.src = "./bilder/Fionaa.png"; 
+
+        /* var bild4 = new Image();
+        bild2.src = "./bilder/Puss-2-icon.png";
+
+        var bild3 = new Image();
+        bild3.src = "./bilder/Fiona.png"; */
+
+      
+
+     /*    // Steg 2: rita ut bilden
+        bild.addEventListener("load", function() {
+            ctx.drawImage(bild, 50, 50);
+            ctx.drawImage(bild2, 300, 300);
+        });
+ */
+       /*  // Animationsloopen
+        for (var x = 0; x < 800; x++) {
+            console.log(x);       
+            ctx.drawImage(bild, x, 50);
+            setTimeout(1000);
+        }
+ */
+        var x = 0, y = 0;
+        var x2 = 0, y2 = 400;
+        // Animationsloop
+        function loopen() {
+            // Suddar ut canvas som finns bakom figuren som rör sig
+            ctx.clearRect(0, 0, 800, 600);
+
+            // Ritar ut figut
+            ctx.drawImage(bild, x, y);
+            ctx.drawImage(bild2, x2, y2);
+            
+            // Ändra/öka position i x-led
+            x += 3;
+            y += 2;
+            x2 += 3;
+            y2 -= 2;
+            console.log(x);
+            requestAnimationFrame(loopen);
+        }
+        loopen();       
+        
+    </script>
+</body>
+</html>
