@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas grunder</title>
+    <link rel="stylesheet" href="canvas.css">
+</head>
+<body>
+    <canvas width="1000" height="730"></canvas>
+    <script>
+        // Element vi använder
+        const eCanvas = document.querySelector("canvas");
+
+        // Slå på ritmotorn (ctx = pennan)
+        var ctx = eCanvas.getContext("2d"); 
+       
+        var galaxy = new Image();
+        var image = new Image();
+        var image1 = new Image();
+        var image2 = new Image();
+        /* var imageX = Math.random() * 1000;
+        var imageY = Math.random() * 800; */
+        var dx = 2,
+            dy = 2;
+        
+        // bilder
+        galaxy.src = "./bilder/galaxy.png";
+        image.src = "./bilder/monster.png";
+        image1.src = "./bilder/mike.png";
+        image2.src = "./bilder/pet.png";
+        
+        // variabler
+        var imageX = 330, imageY = 110; 
+        var image1X = 500, image1Y = 500; 
+        var image2X = 340, image2Y = 500; 
+        var speed = 2;
+        // Animationsloop
+        function loopen() {
+            imageX += dx;
+            imageY += dy;
+            image1X -= dx;
+            image1Y-= dy;
+            image2X += dx;
+            image2Y -= dy;
+
+            /* om image når bottenkanten */
+             if (imageY, image1Y, image2Y > 620) {
+                dy = -dy;
+            }
+            if (imageX, image1X, image2X > 900) {
+                dx = -dx;
+            }
+            if (imageX, image1X, image2X < 0) {
+                dx = -dx;
+            }
+            if (imageY, image1Y, image2Y < -5) {
+                dy = -dy;
+            } 
+            // Suddar ut canvas som finns bakom figuren som rör sig
+            ctx.clearRect(0, 0, 800, 600); 
+            
+            // Ritar ut figut
+            ctx.drawImage(galaxy, 0, 0);
+            ctx.drawImage(image, imageX, imageY);
+            ctx.drawImage(image1, image1X, image1Y);
+            ctx.drawImage(image2, image2X, image2Y);
+            
+            // Ändra/öka position i x-led
+            //imageY -= speed;
+
+            // öka hastigheten
+            speed += 0.01;
+            console.log(imageY);
+            console.log(image1Y);
+            console.log(image2Y);
+            requestAnimationFrame(loopen);
+        }
+        loopen();       
+        
+    </script>
+</body>
+</html>

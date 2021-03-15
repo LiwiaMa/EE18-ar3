@@ -15,17 +15,35 @@
         // Slå på ritmotorn (ctx = pennan)
         var ctx = eCanvas.getContext("2d"); 
 
-       
         var moon = new Image();
         var rocket = new Image();
         
         moon.src = "./bilder/moon-landscape-3.png";
         rocket.src = "./bilder/Shrek.png";
 
+        var dx = 2,
+            dy = 2;
+
         var rocketX = 370, rocketY = 350;
         var speed = 2;
         // Animationsloop
         function loopen() {
+            rocketX += dx;
+            rocketY += dy;
+
+            /* om image når bottenkanten */
+            if (rocketY > 500) {
+                dy = -dy;
+            }
+            if (rocketX > 740) {
+                dx = -dx;
+            }
+            if (rocketX < 0) {
+                dx = -dx;
+            }
+            if (rocketY < -5) {
+                dy = -dy;
+            } 
             // Suddar ut canvas som finns bakom figuren som rör sig
             ctx.clearRect(0, 0, 800, 600);
 
@@ -34,7 +52,7 @@
             ctx.drawImage(rocket, rocketX, rocketY);
             
             // Ändra/öka position i x-led
-            rocketY -= speed;
+           // rocketY -= speed;
 
             // öka hastigheten
             speed += 0.01;
