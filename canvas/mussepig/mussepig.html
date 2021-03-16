@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas grunder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas width="800" height="600"></canvas>
+    <script>
+        // Element vi använder
+        const eCanvas = document.querySelector("canvas");
+        // Slå på ritmotorn (ctx = pennan)
+        var ctx = eCanvas.getContext("2d"); 
+        
+        var dx = 2,
+            dy = 2;
+
+    function ritaMussepig(x, y) {
+            
+        // Rita huvudet
+        ctx.beginPath();
+        ctx.fillStyle = "#000";
+        ctx.arc(x, y, 50, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Rita vänstra örat
+        ctx.beginPath();
+        // Vänster
+        ctx.arc(x - 50, y - 60, 30, 0, 2 * Math.PI);
+        // Höger
+        ctx.arc(x + 50, y - 60, 30, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Rita ögonen
+        ctx.beginPath();
+        ctx.fillStyle = "#FFF";
+        ctx.ellipse(x - 12, y - 9, 11, 23, 0, 0, 2 * Math.PI);
+        ctx.ellipse(x + 12, y - 9, 11, 23, 0, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Rita ögonen (det svarta)
+        ctx.beginPath();
+        ctx.fillStyle = "#000";
+        ctx.ellipse(x - 12, y - 2, 9, 16, 0, 0, 2 * Math.PI);
+        ctx.ellipse(x + 12, y - 2, 9, 16, 0, 0, 2 * Math.PI);
+        ctx.fill();
+        }
+
+        // Animation mha loopen
+        var musseX = 200, musseY = 200;
+        function loopen() {
+            musseX += dx;
+            musseY += dy;
+
+            /* om image når bottenkanten */
+            if (musseY > 550) {
+                dy = -dy;
+            }
+            if (musseX > 700) {
+                dx = -dx;
+            }
+            if (musseX < 80) {
+                dx = -dx;
+            }
+            if (musseY < 90) {
+                dy = -dy;
+            } 
+            // Suddar ut canvas
+            ctx.clearRect(0, 0, 800, 600);
+
+            ritaMussepig(musseX, musseY);
+
+            // Ändra positionen
+            //musseX += 2;
+            console.log(musseY);
+            requestAnimationFrame(loopen);
+        }
+        loopen();
+
+       
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas grunder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas width="800" height="600"></canvas>
+    <script>
+        // Element vi använder
+        const eCanvas = document.querySelector("canvas");
+        // Slå på ritmotorn (ctx = pennan)
+        var ctx = eCanvas.getContext("2d"); 
+        var mars = new Image();
+        
+        mars.src = "./bilder/6552651.jpg";
+       // var dx = 2,
+        // dy = 2;
+
+    function ritaUfo(x, y) {
+          // Rita ufo
+        ctx.beginPath();
+        ctx.fillStyle = "#0CBDAA";
+        ctx.ellipse(x - 50, y - 40, 55, 35  , 0, 0, 2 * Math.PI); 
+        ctx.fill(); 
+        // Rita ufo
+        ctx.beginPath();
+        ctx.fillStyle = "#42424D";
+        ctx.ellipse(x - 50, y - 12, 120, 30, 0, 0, 2 * Math.PI); 
+        ctx.fill(); 
+      
+    }
+
+
+        // Animation mha loopen
+        var ufoX = 400, ufoY = 400;
+        function loopen() {
+            ctx.clearRect(0, 0, 800, 600);
+            
+        // Ritar ut figut
+            ctx.drawImage(mars, 0, 0);
+
+            //ufoX += dx;
+            //ufoY += dy;
+
+            /* om image når bottenkanten */
+          /*   if (ufoY > 550) {
+                dy = -dy;
+            }
+            if (ufoX > 700) {
+                dx = -dx;
+            }
+            if (ufoX < 80) {
+                dx = -dx;
+            }
+            if (ufoY < 90) {
+                dy = -dy;
+            }  */
+            // Suddar ut canvas
+
+            ritaUfo(ufoX, ufoY);
+
+            // Ändra positionen
+            ufoX += 3;
+            ufoY -= 3;
+            console.log(ufoY);
+            requestAnimationFrame(loopen);
+        }
+        loopen();
+
+    </script>
+</body>
+</html>
