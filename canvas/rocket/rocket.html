@@ -18,8 +18,8 @@
         var moon = new Image();
         var rocket = new Image();
         
-        moon.src = "./bilder/moon-landscape-3.png";
-        rocket.src = "./bilder/Shrek.png";
+        moon.src = "./bilder/house6.jpg";
+        rocket.src = "./bilder/shreek copy.png";
 
         var dx = 2,
             dy = 2;
@@ -32,10 +32,10 @@
             rocketY += dy;
 
             /* om image når bottenkanten */
-            if (rocketY > 500) {
+            if (rocketY > 350) {
                 dy = -dy;
             }
-            if (rocketX > 740) {
+            if (rocketX > 620) {
                 dx = -dx;
             }
             if (rocketX < 0) {
