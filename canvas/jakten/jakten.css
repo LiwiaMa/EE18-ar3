@@ -1,0 +1,28 @@
+body {
+    background: #000;
+}
+.kontainer {
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 1000px;
+}
+canvas {
+    background: #FFF;
+    margin: auto;
+    display: block;
+/*  cursor: none;*/
+}
+
+aside {
+    background: #457D72;
+    padding: 1em;
+    width: 200px;
+    height: 200px;
+}
+h3 {
+    font-size: 30px;
+}
+p {
+    font-size: 20px;
+}
