@@ -8,7 +8,7 @@ var fg = new Image();
 var pipeNorth = new Image();
 var pipeSouth = new Image();
 
-bird.src = "./images/bird.png";
+bird.src = "./images/angry.png";
 bg.src = "./images/bg.png";
 fg.src = "./images/fg.png";
 pipeNorth.src = "./images/pipeNorth.png";
@@ -78,7 +78,7 @@ function draw() {
 
     ctx.drawImage(fg, 0, cvs.height - fg.height);
 
-    ctx.drawImage(bird, bX, bY);
+    ctx.drawImage(bird, bX, bY, 40, 40);
 
     bY += gravity;
 
