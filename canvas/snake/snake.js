@@ -138,7 +138,7 @@ function draw() {
 var game = setInterval(draw, 100);
 
 // Timer
-const timeH = document.querySelector("h1");
+const timeH = document.querySelector("aside");
 var timeSecond = 60;
 
 displayTime(timeSecond);
