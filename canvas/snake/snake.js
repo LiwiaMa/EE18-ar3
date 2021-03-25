@@ -162,3 +162,4 @@ function endTime() {
     clearInterval(game);
     dead.play();
 }
+ 
