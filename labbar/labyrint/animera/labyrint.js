@@ -16,21 +16,29 @@ var figurY = 100;
  */
 // Figur objektet (istället för att ha många olika variabler, som figurX, figurY osv) (vad figuren har för egenskaper)
 var figur = {
-    x: 100, // figur.x = figurX
-    y: 100, // figur.y = figurY
+    x: 25, // figur.x = figurX
+    y: 25, // figur.y = figurY
     rotation: 0,
     bild: new Image()
 }
 figur.bild.src = "../nyckelpiga.png";
+
+// Rita ut figuren
+function ritaFigur() {
+    ctx.save();
+    ctx.translate(figur.x, figur.y);
+    ctx.rotate(figur.rotation / 180 * Math.PI);
+    ctx.drawImage(figur.bild, -25, -25, 50, 50);
+    ctx.restore();
+}
 
 // Animationsloopen
 function loopen() {
     // sudda ut canvas
     ctx.clearRect(0, 0, 600, 500)
 
-    // Rita loopen
-    ctx.drawImage(figur.bild, figur.x, figur.y, 50, 50);
-
+    // Rita figuren
+    ritaFigur(); 
 
     requestAnimationFrame(loopen);
 }
@@ -42,31 +50,27 @@ window.addEventListener("keypress", function (e) {
 
     switch (e.code) {
         case "Numpad5":  // Pil nedåt
-            if (figur.y < 450) {
                 figur.y += 50;
-            }
+                figur.rotation = 180;
             break;
         case "Numpad8":  // Pil uppåt
-            if (figur.y > 0) {
                 figur.y -= 50;
-            }
+                figur.rotation = 0;
             break;
         case "Numpad4":  // Pil höger
 
-            if (figur.x > 0) {
                 figur.x -= 50;
-            }
+                figur.rotation = 270;
             break;
         case "Numpad6":  // Pil vänster
-            if (figur.x < 550) {
                 figur.x += 50;
-            }
+                figur.rotation = 90;
             break;
 
         default:
             break;
 
     }
-    console.log("kolumn: " + figur.x / 50 + ", rad: " + figur.y / 50);
+    console.log("kolumn: " + (figur.x - 25) / 50 + ", rad: " + (figur.y - 25) / 50);
 });
 
