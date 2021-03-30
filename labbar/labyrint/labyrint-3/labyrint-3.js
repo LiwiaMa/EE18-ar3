@@ -1,15 +1,21 @@
-// Element vi använder
+/*************************************/
+/*           Inställningar            /
+/*************************************/
+// Hitta element på sidan
 const canvas = document.querySelector("canvas");
 const ePoints = document.querySelector("p");
 
-// Ställ storlek på cavas
+
+// Ställ in storlek på canvas
 canvas.width = 1000;
 canvas.height = 750;
 
-// Stlå på rit api
+// Starta canvas rit-api (det som gör att man kan rita)
 var ctx = canvas.getContext("2d");
 
-// Skapa labyrinten (0 = hål i väggen, 1 = vägg)
+/*************************************/
+/*         Globala variabler          /
+/*************************************/
 var karta = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
@@ -25,27 +31,74 @@ var karta = [
     [1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1],
     [1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1],
     [1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
-// Figur objekt
+/*************************************/
+/*         Objekten som syns          /
+/*************************************/
 var figur = {
     rad: 1, // figur.x = figurX
     kolumn: 0, // figur.y = figurY
     rotation: 0,
-    poäng: 0, 
+    poäng: 0,
     bild: new Image()
 }
 figur.bild.src = "../nyckelpiga.png";
 
 // objekt mynt
-var mynt = {
+var mynt1 = {
     rad: 0,
     kolumn: 0,
-    bild: new Image ()
+    bild: new Image()
 }
-mynt.bild.src = "../coinn.jpg";
+mynt1.bild.src = "../coinn.jpg";
+
+// objekt mynt
+var mynt2 = {
+    rad: 0,
+    kolumn: 0,
+    bild: new Image()
+}
+mynt2.bild.src = "../coinn.jpg";
 
 
+var monster = {
+    rad: 1, // figur.x = figurX
+    kolumn: 0, // figur.y = figurY
+    rotation: 0,
+    poäng: 0,
+    bild: new Image()
+}
+monster.bild.src = "../monster2.jpg";
+
+/*************************************/
+/*  Kod som körs innan loopen startar /
+/*************************************/
+spawnaMynt(mynt1);
+spawnaMynt(mynt2);
+spawnaMonster();
+/*************************************/
+/*         Animationsloopen           /
+/*************************************/
+function loopen() {
+    ctx.clearRect(0, 0, 800, 600);
+
+    ritaFigur();
+    ritaMonster();
+    ritaMynt(mynt1);
+    ritaMynt(mynt2);
+    
+    ritaKartan();
+    plockaPoäng(mynt1);
+    plockaPoäng(mynt2);
+
+    requestAnimationFrame(loopen);
+}
+loopen();
+
+/*************************************/
+/*             Funktioner             /
+/*************************************/
 // Rita ut figuren
 function ritaFigur() {
     ctx.save();
@@ -54,61 +107,71 @@ function ritaFigur() {
     ctx.drawImage(figur.bild, -25, -25, 50, 50);
     ctx.restore();
 }
+function ritaMonster() {
+    ctx.save();
+    ctx.translate(monster.kolumn * 50 + 25, monster.rad * 50 + 25);
+    ctx.rotate(monster.rotation / 180 * Math.PI);
+    ctx.drawImage(monster.bild, -25, -25, 50, 50);
+    ctx.restore();
+}
 
-// Rita mynt
-function ritaMynt() {
+function ritaMynt(mynt) {
     ctx.drawImage(mynt.bild, mynt.kolumn * 50, mynt.rad * 50, 50, 50);
 }
 
+
 // Spawna ett mynt
-function spawnaMynt() {
+function spawnaMynt(objekt) {
     // Onändlig loop
     while (true) {
-        mynt.rad = Math.floor(Math.random() * 16);
-        mynt.kolumn =  Math.floor(Math.random() * 20);
+        objekt.rad = Math.floor(Math.random() * 16);
+        objekt.kolumn = Math.floor(Math.random() * 20);
 
         // Avbryt när myntet 0 
-         // Om vi hittar en "1", rita ut en kloss (vägg)
-        if (karta[mynt.rad][mynt.kolumn] == 0) {
+        // Om vi hittar en "1", rita ut en kloss (vägg)
+        if (karta[objekt.rad][objekt.kolumn] == 0) {
             break;
         }
     }
 }
 
+
 // Spawna ett mynt
-function spawnaMynt() {
+function spawnaMonster() {
     // Onändlig loop
     while (true) {
-        mynt.rad = Math.floor(Math.random() * 16);
-        mynt.kolumn =  Math.floor(Math.random() * 20);
+        monster.rad = Math.floor(Math.random() * 16);
+        monster.kolumn = Math.floor(Math.random() * 20);
 
         // Avbryt när myntet 0 
-         // Om vi hittar en "1", rita ut en kloss (vägg)
-        if (karta[mynt.rad][mynt.kolumn] == 0) {
+        // Om vi hittar en "1", rita ut en kloss (vägg)
+        if (karta[mynt2.rad][mynt2.kolumn] == 0) {
             break;
         }
     }
 }
-spawnaMynt();
+
 
 // plocka myntet, få poäng
-function plockaPoäng() {
+function plockaPoäng(mynt) {
     // om figuren är i samma ruta som myntet
     if (figur.rad == mynt.rad && figur.kolumn == mynt.kolumn) {
         // öka poäng
         figur.poäng++;
-        texten.textContent = figur.poäng;
+        ePoints.textContent = figur.poäng;
         // spawna om myntet
-        spawnaMynt();
+        spawnaMynt(mynt);
     }
+   
 }
+
 // Rita kartan
 function ritaKartan() {
     // Loopa igenom raderna (man måste byta namn på loopen till tex j, för att annars så skulle det krocka med den inre loopen)
     for (var rad = 0; rad < 15; rad++) {
 
         // Loopa igenom arrayen (kolumerna)
-        for (var kolumn = 0; kolumn < 20; kolumn++) {
+        for (var kolumn = 0; kolumn < 21; kolumn++) {
             // console.log(i, karta[i]);
 
             // Om vi hittar en "1", rita ut en kloss (vägg)
@@ -130,29 +193,11 @@ function ritaKartan() {
     }
 }
 
-// Animationsloopen
-function loopen() {
-    // sudda ut canvas
-    ctx.clearRect(0, 0, 1000, 650)
 
-    // Rita figuren
-    ritaKartan();
-
-    ritaFigur();
-
-    ritaMynt();
-
-    // krocka med myntet och få poäng
-    plockaPoäng();
-    
-
-    requestAnimationFrame(loopen);
-}
-// starta loopen 
-loopen();
-
-window.addEventListener("keypress", function (e) {
-
+/*************************************/
+/*             Interaktion            /
+/*************************************/
+window.addEventListener("keypress", function (e) {// e->  tangent som trycktes
     switch (e.code) {
         case "Numpad2":  // Pil nedåt
         // Är det 0 (gång) i rutan nedanför?
@@ -188,7 +233,4 @@ window.addEventListener("keypress", function (e) {
 
     }
     console.log("Kolumn: " + figur.kolumn + ", rad:" + figur.rad);
-});
-
-
-
+})
