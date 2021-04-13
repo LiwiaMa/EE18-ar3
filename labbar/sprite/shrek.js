@@ -19,11 +19,11 @@ var shrek = new Image();
 shrek.src = "./bilder/shrel.png";
 
 // Hur lång tid varje ruta får (1/60)
-var shrekRutor = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6];
+var shrekRutor = [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6];
 var i = 0;
 
 // För att rita ut shrek figuren
-function ritashrek() {
+function ritaShrek() {
     // Första rutan 
     ctx.drawImage(shrek, 64 * shrekRutor[i], 0, 64, 64, 100, 100, 96, 64);
 
@@ -54,7 +54,7 @@ function ritashrek() {
 function loopen() {
     ctx.clearRect(0, 0, 800, 600);
 
-    ritashrek();
+    ritaShrek();
 
     requestAnimationFrame(loopen);
 
