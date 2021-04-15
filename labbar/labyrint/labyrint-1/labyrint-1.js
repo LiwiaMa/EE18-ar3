@@ -33,7 +33,7 @@ var figur = {
     rotation: 0,
     bild: new Image()
 }
-figur.bild.src = "../nyckelpiga.png";
+figur.bild.src = "../bilder/nyckelpiga.png";
 
 // Rita ut figuren
 function ritaFigur() {

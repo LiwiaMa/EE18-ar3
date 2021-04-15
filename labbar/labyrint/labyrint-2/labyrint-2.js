@@ -35,7 +35,7 @@ var figur = {
     poäng: 0, 
     bild: new Image()
 }
-figur.bild.src = "../nyckelpiga.png";
+figur.bild.src = "../bilder/nyckelpiga.png";
 
 // objekt mynt
 var mynt = {
@@ -43,7 +43,7 @@ var mynt = {
     kolumn: 0,
     bild: new Image ()
 }
-mynt.bild.src = "../coinn.jpg";
+mynt.bild.src = "../bilder/coinn.jpg";
 
 
 // Rita ut figuren

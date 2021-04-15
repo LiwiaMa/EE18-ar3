@@ -43,7 +43,7 @@ var figur = {
     poäng: 0,
     bild: new Image()
 }
-figur.bild.src = "../nyckelpiga.png";
+figur.bild.src = "../bilder/nyckelpiga.png";
 
 // objekt mynt
 var mynt1 = {
@@ -51,7 +51,7 @@ var mynt1 = {
     kolumn: 0,
     bild: new Image()
 }
-mynt1.bild.src = "../coinn.jpg";
+mynt1.bild.src = "../bilder/coinn.jpg";
 
 // objekt mynt
 var mynt2 = {
@@ -59,7 +59,7 @@ var mynt2 = {
     kolumn: 0,
     bild: new Image()
 }
-mynt2.bild.src = "../coinn.jpg";
+mynt2.bild.src = "../bilder/coinn.jpg";
 
 
 var monster = {
@@ -69,7 +69,7 @@ var monster = {
     poäng: 0,
     bild: new Image()
 }
-monster.bild.src = "../monster2.jpg";
+monster.bild.src = "../bilder/monster2.jpg";
 
 /*************************************/
 /*  Kod som körs innan loopen startar /
