@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Geolocation</title>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 15vh;
+            bottom: 0;
+            width: 41.5vw;
+            height: 70vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="kontainer">
+        <div id='map'></div>
+
+        <p></p>
+    </div>
+    <script>
+        // Hitta element
+        const p = document.querySelector("p");
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGlsZWswMiIsImEiOiJja2w2ZGw0dDMwaHluMnBreWl2NTRxMmxuIn0.58ExQ72kcfWOF4XKGaQIdQ';
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/lilek02/ckm1xkuom7xho17rz3jqq7jhn', // replace this with your style URL
+            center: [18.068581, 59.329323], // Longitude, Latitude
+            zoom: 10.7
+        });
+        
+        // Är geolocation påslagen?
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(visaPosition);
+        }else {
+            p.textContent = "Kan inte hitta din position. Dim webbläsare är för gammal"; 
+        }
+
+        // Skriv ut position
+        function visaPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            p.textContent = "Din position är: latitude =" + latitude +", longitude" + longitude;
+        }
+    </script>
+</body>
+</html>
