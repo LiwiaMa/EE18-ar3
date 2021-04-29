@@ -33,12 +33,19 @@ var karta = [
 /*              Objekten              /
 /*************************************/
 
-// Spelaren 
-var spelare = {
-    rad: 1,
-    kolumn: 0,
-    rotation: 0,
-    bild: new Image(),
+
+// Spelare class (oop)
+// class är som en ritning/ mall som man kan använda för att skapa objekt
+// constructor är som 
+class Spelare {
+    constructor()
+    {
+        this.rad = 1;
+        this.kolumn = 0;
+        this.rotation = 0;
+        this.bild = new Image();
+        this.bild.src = "../bilder/nyckelpiga.png";
+    }
     rita() {
         ctx.save();
         ctx.translate(this.kolumn * 50 + 25, this.rad * 50 + 25);
@@ -48,68 +55,53 @@ var spelare = {
         
     }
 }
-spelare.bild.src = "../bilder/nyckelpiga.png";
+// Nu skapar vi objektet vi behöver
+var spelare = new Spelare();
 
 // var finns spelaren
 // spelare.rad -> på vilken
 // spelare.kolumn -> på vilken kolumn
 // spelare.rad()
 
-
-
-// Mynt 1
-var mynt1 = {
-    rad: 3,
-    kolumn: 11,
-    bild: new Image(),
+// Klass muynt
+class Mynt {
+    constructor () {
+    this.rad = Math.floor(Math.random() * 12);
+    this.kolumn = Math.floor(Math.random() * 16);
+    this.bild = new Image();
+    this.bild.src = "../bilder/coin.png";
+    }
     rita() {
         ctx.drawImage(this.bild, this.kolumn * 50, this.rad * 50, 50, 50);
     }
 }
-mynt1.bild.src = "../bilder/coin.png";
 
-// Mynt 2
-var mynt2 = {
-    rad: 2,
-    kolumn: 2,
-    bild: new Image(),
-    rita() {
-        ctx.drawImage(this.bild, this.kolumn * 50, this.rad * 50, 50, 50);
-    }
+// skapa en array för mynt
+var mynten = [];
+for (let i = 0; i < 5; i++) {
+mynten.push(new Mynt());
+    
 }
-mynt2.bild.src = "../bilder/coin.png";
 
-// Mynt 3
-var mynt3 = {
-    rad: 4,
-    kolumn: 2,
-    bild: new Image(),
-    rita() {
-        ctx.drawImage(this.bild, this.kolumn * 50, this.rad * 50, 50, 50);
+// Klass monster
+class Monster {
+    constructor () {
+        this.rad = Math.floor(Math.random() * 12);
+        this.kolumn = Math.floor(Math.random() * 16);
+        this.bild = new Image();
+        this.bild.src = "../bilder/monster.png";
+
     }
-}
-mynt3.bild.src = "../bilder/coin.png";
-
-// Monster
-var monster1 = {
-    rad: 5,
-    kolumn: 2,
-    bild: new Image(),
     rita() {
         ctx.drawImage(this.bild, this.kolumn*50, this.rad*50, 50, 50);
     }
 }
-monster1.bild.src = "../bilder/monster.png";
-// Monster
-var monster2 = {
-    rad: 6,
-    kolumn: 6,
-    bild: new Image(),
-    rita() {
-        ctx.drawImage(this.bild, this.kolumn*50, this.rad*50, 50, 50);
-    }
+// skapa en array för monster
+var monsters = [];
+for (let i = 0; i < 5; i++) {
+mynten.push(new Monster());
+    
 }
-monster2.bild.src = "../bilder/monster.png";
 
 /*************************************/
 /*            Funktioner              /
@@ -132,41 +124,6 @@ function ritaKartan() {
     }
     
 }
-// Rita kartan
-/* function ritaSpelare() {
-    ctx.save();
-    ctx.translate(spelare.kolumn * 50 + 25, spelare.rad * 50 + 25);
-    ctx.rotate(spelare.rotation / 180 * Math.PI);
-    ctx.drawImage(spelare.bild, -25, -25, 50, 50);
-    ctx.restore();
-    
-} */
-
-/* function ritaMynt1() {
-    ctx.drawImage(mynt1.bild, mynt1.kolumn * 50, mynt1.rad * 50, 50, 50);
-} */
-/* function ritaMynt2() {
-    ctx.drawImage(mynt2.bild, mynt2.kolumn * 50, mynt2.rad * 50, 50, 50);
-} */
-/* function ritaMynt3() {
-    ctx.drawImage(mynt3.bild, mynt3.kolumn * 50, mynt3.rad * 50, 50, 50);
-} */
-
-/* function ritaMonster() {
-    ctx.save();
-    ctx.translate(monster.kolumn * 50 + 25, monster.rad * 50 + 25);
-    ctx.rotate(monster.rotation / 180 * Math.PI);
-    ctx.drawImage(monster.bild, -25, -25, 50, 50);
-    ctx.restore();
-} */
-/* function ritaMonster1() {
-   
-    ctx.drawImage(monster1.bild, monster1.kolumn*50, monster1.rad*50, 50, 50);
-} */
-/* function ritaMonster2() {
-   
-    ctx.drawImage(monster2.bild, monster2.kolumn*50, monster2.rad*50, 50, 50);
-} */
 
 
 // Animationsloopen
@@ -179,17 +136,10 @@ function loopen() {
 
     spelare.rita();
 
-    mynt1.rita();
-    mynt2.rita();
-    mynt3.rita();
-
-    monster1.rita();
-    monster2.rita();
-   /*  ritaMynt1();
-    ritaMynt2();
-    ritaMynt3();
-    ritaMonster1();
-    ritaMonster2(); */
+    // Rita ut alla mynt
+    mynten.forEach(mynt => mynt.rita());
+    // Rita ut alla mynt
+    monsters.forEach(monster => monster.rita());
 
     requestAnimationFrame(loopen);
 }
