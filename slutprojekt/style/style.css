@@ -1,0 +1,40 @@
+body {
+  background-color: #040451;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  margin: 0;
+  width: 200vw;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  background: #040451;
+}
+
+.box {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  background: #17175ac4;
+}
+
+h1 {
+  margin: auto;
+  color: #FFF;
+}
+
+.button {
+  background: #F1E9DB;
+  padding: 10px;
+  margin-top: 5vh;
+  font-size: 20px;
+  color: black;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  width: 50%;
+}
+/*# sourceMappingURL=style.css.map */
