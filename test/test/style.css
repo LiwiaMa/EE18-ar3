@@ -1,0 +1,43 @@
+body {
+    background: #000;
+}
+
+*{
+
+    box-sizing: border-box;
+  }
+  
+  .item1 {
+    width: 380px;
+    height: 235px;
+    margin: 50px auto;
+    padding-top: 14px;
+    background: #ccc;
+    text-align: center;
+    font-size: 3em;
+    widows: 600px;
+    margin-top: 120px;
+    margin-bottom: 250px;
+    margin-left: 200px;
+  }
+  .item2 {
+    width: 380px;
+    height: 235px;
+    margin: 50px auto;
+    padding-top: 14px;
+    background: #ccc;
+    text-align: center;
+    font-size: 3em;
+    widows: 600px;
+    margin-top: 120px;
+    margin-bottom: 250px;
+    margin-right: 200px;
+  }
+
+  img {
+    width: 350px;
+    
+  }
+
+
+
