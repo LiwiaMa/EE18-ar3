@@ -59,9 +59,9 @@ body {
   text-align: center;
 }
 
-h1 {
+.coontainer h1 {
   color: #FFF;
-  font-size: 70px;
+  font-size: 50px;
   font-family: "Lato", sans-serif;
   font-weight: bold;
 }
