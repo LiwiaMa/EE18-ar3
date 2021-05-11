@@ -11,42 +11,77 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
-        <div class="kontainer">
-            <div class="box2">
-                <h1>Welcome</h1>
+    <div class="kontainer">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Earth</a>
+            <a href="#">Space</a>
+            <a href="#">Ocean</a>
+            <a href="#">Log out</a>
+        </div>
+
+        <span class="span1" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+        <section id="sec1">
+            <div class="box3">
+                <h1>Welcome!</h1>
                 <h2>What are you searching for?</h2>
             </div>
-            <div class="arrow"></div>
+            <a class="scroll-down-holder" href="#sec2">
+                <div class="arrow" src> </div>
+            </a>
 
-            <div class="item2" data-aos="fade-left">
-                <div class="img-hoder"><img src="book.jpg" alt=""></div>
-            </div>
+        </section>
 
-            <div class="item1" data-aos="fade-right">
-                <div class="img-hoder"><img src="book.jpg" alt=""></div>
-            </div>
-            <div class="item2" data-aos="fade-left">
-                <div class="img-hoder"><img src="book.jpg" alt=""></div>
-            </div>
+        <section id="sec2">
+            <main>
+                <div class="item2" data-aos="fade-left">
+                      <a>
+                          <div class="img-hoder"><img src="./bilder/shot-by-cerqueira-0o_GEzyargo-unsplash.jpg" alt=""></div>
+                          <figcaption>dnndndn</figcaption>
+                      </a>
+                </div>
 
-            <div class="item1" data-aos="fade-right">
-                <div class="img-hoder"><img src="book.jpg" alt=""></div>
-            </div>
-            <div class="item2" data-aos="fade-left">
-                <div class="img-hoder"><img src="book.jpg" alt=""></div>
-            </div>
+                <div class="item1" data-aos="fade-right">
+                    <a>
+                        <div class="img-hoder"><img src="./bilder/jim-beaudoin-pFoq-2zg82g-unsplash.jpg" alt=""></div>
+                    </a>
+                </div>
+                <div class="item2" data-aos="fade-left">
+                    <a>
+                        <div class="img-hoder"><img src="./bilder/sergei-akulich--heLWtuAN3c-unsplash.jpg" alt=""></div>
+                    </a>
+                </div>
+                <div class="item1" data-aos="fade-left">
+                    <a>
+                        <div class="img-hoder"><img src="./bilder/sven-scheuermeier-VNseEaTt9w4-unsplash.jpg" alt=""></div>
+                    </a>
+                </div>
+
+                
+            </main>
 
             <footer>
                 <p></p>
             </footer>
+        </section>
+    </div>
 
-            <script>
+    <script>
 
-                AOS.init({
-                    duration: 1200,
-                })
-            </script>
+        AOS.init({
+            duration: 1200,
+        })
 
-        </div>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+
+    </script>
+
 </body>
 </html>

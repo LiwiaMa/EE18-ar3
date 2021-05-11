@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap");
 body {
   background-color: #040451;
   padding: 0;
@@ -12,20 +13,19 @@ body {
   -ms-grid-columns: auto auto;
       grid-template-columns: auto auto;
   background: #040451;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  -webkit-box-sizing: border-;
+          box-sizing: border-;
 }
 
 .kontainer {
   margin: 0;
-  height: 418vh;
-  background: #040451;
+  background-color: #040446;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
 .box1 {
-  background: #17175ac4;
+  background: #05055a;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
@@ -49,18 +49,29 @@ body {
 
 .box2 {
   margin: auto;
-  padding-top: 300px;
-  width: 40vw;
+  width: 380px;
   text-align: center;
 }
 
-h1 {
-  color: #FFF;
-  font-size: 50px;
+.box3 {
+  margin: auto;
+  width: 98vh;
+  text-align: center;
 }
 
-h2 {
+.box3 h1 {
   color: #FFF;
+  font-size: 70px;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+}
+
+.box3 h2 {
+  color: #FFF;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 30px;
+  font-weight: bold;
+  /** font-style: italic **/
 }
 
 .button {
@@ -84,7 +95,7 @@ h2 {
 .arrow {
   width: 40px;
   height: 40px;
-  top: 90%;
+  top: 88%;
   margin: -20px 0 0 -20px;
   -webkit-transform: rotate(45deg);
   border-left: none;
@@ -135,51 +146,144 @@ h2 {
 }
 
 .item1 {
-  width: 380px;
-  height: 235px;
+  width: 29vw;
+  height: 32vh;
   margin: auto;
   padding-top: 14px;
-  background: #ccc;
   text-align: center;
   font-size: 3em;
-  margin-top: 120px;
-  margin-bottom: 250px;
+  margin-top: 90px;
+  margin-bottom: 200px;
   margin-left: 200px;
 }
 
 .item2 {
-  width: 380px;
-  height: 235px;
+  background-image: url(../bilder/nathan-anderson-ohx4v80mJm8-unsplash.jp);
+  width: 29vw;
+  height: 32vh;
   margin: auto;
   padding-top: 14px;
-  background: #ccc;
   text-align: center;
   font-size: 3em;
-  margin-top: 120px;
-  margin-bottom: 250px;
-  margin-right: 200px;
-}
-
-.box3 {
-  width: 380px;
-  height: 235px;
-  margin: auto;
-  padding-top: 14px;
-  background: #ccc;
-  text-align: center;
-  font-size: 3em;
-  margin-top: 120px;
-  margin-bottom: 250px;
+  margin-top: 90px;
+  margin-bottom: 200px;
   margin-right: 200px;
 }
 
 img {
-  width: 350px;
+  width: 80%;
+  position: relative;
 }
 
 footer {
   padding: 80px;
   margin-bottom: 0;
   border-top: 2px solid black;
+}
+
+#sec1 {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 98vh;
+  background: #040446;
+  background-blend-mode: multiply;
+  -webkit-transform: translateZ(-1px);
+          transform: translateZ(-1px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#sec2 {
+  background-color: #03034dd7;
+}
+
+main {
+  padding: 10px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+span {
+  color: white;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.item1 img {
+  border: 4px solid #ddd;
+  background: #FFF;
+  border-radius: 4px;
+  padding: 5px;
+  width: 30vw;
+}
+
+.item1 img:hover {
+  -webkit-box-shadow: 0 0 2px 1px rgba(234, 241, 243, 0.5);
+          box-shadow: 0 0 2px 1px rgba(234, 241, 243, 0.5);
+}
+
+.item2 img {
+  border: 4px solid #ddd;
+  background: #FFF;
+  border-radius: 4px;
+  padding: 5px;
+  width: 30vw;
+}
+
+.item2 img:hover {
+  -webkit-box-shadow: 0 0 2px 1px rgba(234, 241, 243, 0.5);
+          box-shadow: 0 0 2px 1px rgba(234, 241, 243, 0.5);
+}
+
+figcaption {
+  color: white;
+  font-family: "Lato", sans-serif;
 }
 /*# sourceMappingURL=style.css.map */
