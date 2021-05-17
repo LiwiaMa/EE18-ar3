@@ -4,7 +4,11 @@ body
     background-color: #040451
     padding: 0
     margin: 0
+/*************************************/
+/*               Index                /
+/*************************************/
 
+// contaier
 .coontainer
     margin: 0
     height: 100vh
@@ -12,14 +16,15 @@ body
     display: grid
     grid-template-columns: auto auto
     background: #040451
-    box-sizing: border-
-    
-.kontainer
-    margin: 0
-    //padding: 10em
-    background-color : #040446
-    box-sizing: border-box
-    
+    box-sizing: border
+
+.coontainer h1
+    color: #FFF
+    font-size: 50px 
+    font-family: "Lato", sans-serif
+    font-weight: bold
+
+// btn and btn-holder (right half of the site)
 .box1
     background: #05055a
     box-sizing: border-box
@@ -28,45 +33,6 @@ body
     display: flex
     justify-content: center
     align-items: center
-
-.button-wrapper
-    margin: auto
-    width: 40vw
-    text-align: center
-    
-    
-
-.box2
-    margin: auto
-    width: 380px
-    text-align: center
-    
-.box3
-    margin: auto
-    width: 98vh
-    text-align: center
-    
-    
-.coontainer h1
-    color: #FFF
-    font-size: 50px 
-    font-family: "Lato", sans-serif
-    font-weight: bold
-    
-.box3 h1
-    color: #FFF
-    font-size: 70px 
-    font-family: "Lato", sans-serif
-    font-weight: bold
-   
-    
-.box3 h2
-    color: #FFF
-    font-family: "Lato", sans-serif
-    margin-bottom: 30px
-    font-weight: bold
-    /** font-style: italic **/
-
 
 .button
     background: #F1E9DB
@@ -79,6 +45,58 @@ body
     text-decoration: none
     width: 50%
 
+.button-wrapper
+    margin: auto
+    width: 40vw
+    text-align: center
+
+// Linkt to the other site
+.button a
+    text-decoration: none    
+    color: #000          
+
+.button a:hover
+    text-decoration: none    
+    color: #0c0ccf   
+
+
+// Right half of the site
+.title1
+    margin: auto
+    width: 380px
+    text-align: center
+
+/*************************************/
+/*               Menu                 /
+/*************************************/
+
+.kontainer
+    margin: 0
+    //padding: 10em
+    background-color : #040446
+    box-sizing: border-box
+
+// Welcome part
+.introduction
+    margin: auto
+    width: 98vh
+    text-align: center
+
+.introduction h1
+    color: #FFF
+    font-size: 70px 
+    font-family: "Lato", sans-serif
+    font-weight: bold
+   
+    
+.introduction h2
+    color: #FFF
+    font-family: "Lato", sans-serif
+    margin-bottom: 30px
+    font-weight: bold
+    /** font-style: italic **/
+
+// Arrow animation
 .arrow,
 .arrow:before
   position: absolute
@@ -95,8 +113,6 @@ body
   border-right: 2px #fff solid
   border-bottom: 2px #fff solid
   cursor: pointer
-  
-
   
 .arrow:before
   content: ''
@@ -120,41 +136,15 @@ body
     transform: translate(-10px, -10px)
     
 
-  
-.item1 
-    width: 29vw 
-    height: 32vh
-    margin:  auto
-    padding-top: 14px
-    text-align: center
-    font-size: 3em
-    margin-top: 90px
-    margin-bottom: 200px
-    margin-left: 200px
-  
-.item2 
-    background-image: url(../bilder/nathan-anderson-ohx4v80mJm8-unsplash.jp)
-    width: 29vw 
-    height: 32vh
-    margin: auto
-    padding-top: 14px
-    text-align: center
-    font-size: 3em
-    margin-top: 90px
-    margin-bottom: 200px
-    margin-right: 200px
 
-
-
-img 
-    width: 80%
-    position: relative 
+// footer, down on the site
     
 footer 
     padding: 80px
     margin-bottom: 0
     border-top: 2px solid black
 
+// First half/section for menu site
 #sec1
     background-position: 50%
     background-repeat: no-repeat
@@ -167,13 +157,14 @@ footer
     display: flex
     justify-content: center
 
+// Second half/section for menu site
 #sec2
     background-color: #03034dd7
 
 main
     padding: 10px
     
-
+// Menu slider on the left side 
 .sidenav 
     height: 100%
     width: 0
@@ -185,7 +176,6 @@ main
     overflow-x: hidden
     transition: 0.5s
     padding-top: 60px
-        
 
 .sidenav a 
     padding: 8px 8px 8px 32px
@@ -207,8 +197,10 @@ main
     font-size: 36px
     margin-left: 50px
 
+// open button and text
 span 
     color: white
+    margin: 20px
 
 @media screen and (max-height: 450px) 
     .sidenav 
@@ -217,7 +209,34 @@ span
 
     .sidenav a 
         font-size: 18px
-        
+
+/** moving box-menu: just box **/ 
+//right one
+.item1 
+    width: 29vw 
+    height: 32vh
+    margin:  auto
+    padding-top: 14px
+    text-align: center
+    font-size: 3em
+    margin-top: 90px
+    margin-bottom: 200px
+    margin-left: 200px
+  
+// Left one
+.item2 
+    background-image: url(../bilder/nathan-anderson-ohx4v80mJm8-unsplash.jp)
+    width: 29vw 
+    height: 32vh
+    margin: auto
+    padding-top: 14px
+    text-align: center
+    font-size: 3em
+    margin-top: 90px
+    margin-bottom: 200px
+    margin-right: 200px
+
+// Moving box menu: img      
 .item1 img
     border: 4px solid #ddd
     background: #FFF
@@ -225,10 +244,6 @@ span
     padding: 5px                
     width: 30vw                
                       
-                      
-.item1 img:hover 
-    box-shadow: 0 0 2px 1px rgba(234, 241, 243, 0.5)
-
 .item2 img
     border: 4px solid #ddd
     background: #FFF
@@ -236,13 +251,21 @@ span
     padding: 5px                
     width: 30vw                
                       
-                      
-.item2 img:hover 
-    box-shadow: 0 0 2px 1px rgba(234, 241, 243, 0.5)
-
+// figcaption/text for the sliders
 figcaption
     color: white
     font-family: "Lato", sans-serif
+   
+.item2 a
+    font-family: "Lato", sans-serif
+    text-decoration: none
+
+.item1 a
+    font-family: "Lato", sans-serif
+    text-decoration: none
+
+
     
-                              
+    
+
 
