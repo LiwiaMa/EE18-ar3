@@ -37,7 +37,7 @@ echo "<table>";
 echo    "<tr>
             <th> Förnamn</th> 
             <th> Efternamn</th>
-            <th> Användarnamn</th> 
+            <th> Email</th> 
             <th> Skapad</th> 
             <th></th>
             <th></th>

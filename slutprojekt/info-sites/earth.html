@@ -10,6 +10,20 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
+
+<style>
+  
+    /* Add animation (fade in the popup) */
+    @-webkit-keyframes fadeIn {
+      from {opacity: 0;} 
+      to {opacity: 1;}
+    }
+    
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity:1 ;}
+    }
+    </style>
 <body>
     <div class="kontainer">
         <div id="mySidenav" class="sidenav">
@@ -39,23 +53,25 @@
                         </div>
 
                         <figcaption class="fig">Space</figcaption>
-                    <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
-                        data-bs-placement="top" data-bs-content="Top popover">
-                        Do you wanna know a fun fact?
-                    </button>
+                        <button class="popup" onclick="myFunction()">Do you wanna know a fun fact?
+                            <span class="popuptext" id="myPopup">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis nihil tenetur fuga, reiciendis temporibus distinctio sapiente necessitatibus odit corrupti accusantium quod deserunt eum, tempore culpa architecto magni? Quibusdam, ipsam?</span>
+                        </button>
                 </div>
-
-
             </main>
-
             <footer>
-                <p></p>
+
             </footer>
         </section>
-    </div>
 
+    </div>
     <script>
-       
+        // When the user clicks on div, open the popup
+        function myFunction() {
+          var popup = document.getElementById("myPopup");
+          popup.classList.toggle("show");
+        }
+        </script>
+    <script>
 
         AOS.init({
             duration: 1200,
@@ -71,6 +87,7 @@
       
       
     </script>
+    
 
 </body>
 </html>
