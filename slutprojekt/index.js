@@ -1,6 +1,6 @@
 // Välj ut elemet 
 const eKnapp = document.querySelector("button");
-const eGrid = document.querySelector(".grid-6");
+const eModal = document.querySelector("#geoModal");
 
 // När man klickar på knappen
 eKnapp.addEventListener("click", function() {
@@ -12,7 +12,7 @@ eKnapp.addEventListener("click", function() {
         console.log(data);
         
     // Fyll griden med bild
-    eGrid.innerHTML += data;
+    eModal.innerHTML += data;
     })
 
 })

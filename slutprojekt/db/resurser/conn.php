@@ -4,9 +4,9 @@ error_reporting(E_ALL);
 
 // Inloggningsuppgifter till vårt databas
 $host = "localhost";
-$db = "register";
-$user = "register";
-$pass = "PsNcuN0OjIDhG33j";
+$db = "slutprojekt";
+$user = "slutprojekt";
+$pass = "ZdAR6afXPY7VXSf8";
 
 // Steg 1 - skapa en anslutning
 $conn = new mysqli($host, $user, $pass, $db);

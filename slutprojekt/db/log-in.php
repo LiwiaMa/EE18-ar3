@@ -6,19 +6,19 @@
  * @author     Liwia Matuszczak <liwiamatuszczak.@gmail.com>
  * @license    PHP CC
  */
-include "./db/db-conn.php";
+include "./db/conn.php";
 session_start();
 ?>
 
 <?php
 // Ta emot data och skydda från hot
-$anamn = filter_input(INPUT_POST, "anamn", FILTER_SANITIZE_STRING);
+$mail = filter_input(INPUT_POST, "mail", FILTER_SANITIZE_STRING);
 $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_STRING);
 
 // Kontrollera om data finns
-if ($anamn && $pass) {
+if ($mail && $pass) {
     // Finns användaren i tabellen?
-    $sql = "SELECT * FROM user WHERE anamn = '$anamn'";
+    $sql = "SELECT * FROM 'logIn' WHERE mail = '$mail'";
     $result = $conn->query($sql);
 
     if ($result->num_rows == 0) {
@@ -36,7 +36,7 @@ if ($anamn && $pass) {
             echo "<p class=\"alert alert-success\">Du är inloggad</p>";
 
             // Skapa en sessionsvariabel
-            $_SESSION["anamn"] = $anamn;
+            $_SESSION["mail"] = $mail;
 
             // Räkna antal
             $antal = $rad['antal'] + 1;
@@ -56,6 +56,5 @@ if ($anamn && $pass) {
     }
 }
 ?>
-</div>
 </body>
 </html>

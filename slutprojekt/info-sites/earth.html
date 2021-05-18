@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+    <div class="kontainer">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Earth</a>
+            <a href="#">Space</a>
+            <a href="#">Ocean</a>
+            <a href="./index.html">Log out</a>
+        </div>
+
+        <span class="span1" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+        <section id="sec1">
+            <div class="introduction">
+                <h1>Mind blowing facts!</h1>
+                <h3>Earth</h3>
+            </div>
+            <a class="scroll-down-holder" href="#sec2">
+                <div class="arrow" src> </div>
+            </a>
+
+        </section>
+
+        <section id="sec2">
+            <main>
+                <div class="item2" data-aos="fade-left">
+                        <div class="img-hoder"><img src="../bilder/shot-by-cerqueira-0o_GEzyargo-unsplash.jpg" alt="">
+                        </div>
+
+                        <figcaption class="fig">Space</figcaption>
+                    <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
+                        data-bs-placement="top" data-bs-content="Top popover">
+                        Do you wanna know a fun fact?
+                    </button>
+                </div>
+
+
+            </main>
+
+            <footer>
+                <p></p>
+            </footer>
+        </section>
+    </div>
+
+    <script>
+       
+
+        AOS.init({
+            duration: 1200,
+        })
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+      
+      
+    </script>
+
+</body>
+</html>
