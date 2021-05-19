@@ -18,3 +18,12 @@ if ($conn->connect_error) {
     echo "<p class=\"anslut\">Gick bra att ansluta till vårt databas</p>";
 }
 
+// Gick det bra?
+/* if (!$result) {
+    die("Något blev fel med SQL-satsen." . $conn->connect_error);
+} else {
+    echo "<p class=\"alert alert-success\">Inläggets har registrerats.</p>";
+} */
+
+
+?>
