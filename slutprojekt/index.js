@@ -6,12 +6,12 @@ const eModal = document.querySelector("#geoModal");
 eKnapp.addEventListener("click", function() {
     console.log("Hämtar...");
 
-    //fetch("./db/registrera.php")
-    /* .then(response => response.text())
+  /*   fetch("./db/registrera.php")
+     .then(response => response.text())
     .then(data => {
         console.log(data);
    
     eModal.innerHTML += data;
     })
- */
+  */
 })

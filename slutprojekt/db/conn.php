@@ -6,24 +6,21 @@ error_reporting(E_ALL);
 $host = "localhost";
 $db = "slutprojekt";
 $user = "slutprojekt";
-$pass = "ZdAR6afXPY7VXSf8";
+$pass = "f089PAGH3PrzP99d";
 
 // Steg 1 - skapa en anslutning
 $conn = new mysqli($host, $user, $pass, $db);
+//var_dump($host, $db, $user, $pass, $conn);
 
 // Gick det bra att ansluta?
 if ($conn->connect_error) {
-    die("Kunde inte ansluta: " . $conn->error);
+    die("Kunde inte ansluta: " . $conn->connect_error);
 } else {
     echo "<p class=\"anslut\">Gick bra att ansluta till vårt databas</p>";
 }
 
 // Gick det bra?
-/* if (!$result) {
-    die("Något blev fel med SQL-satsen." . $conn->connect_error);
-} else {
-    echo "<p class=\"alert alert-success\">Inläggets har registrerats.</p>";
-} */
+
 
 
 ?>

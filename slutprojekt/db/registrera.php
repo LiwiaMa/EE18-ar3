@@ -6,13 +6,26 @@
  * @author     Liwia Matuszczak <liwiamatuszczak.@gmail.com>
  * @license    PHP CC
  */
+// kod som säger var bug finns, används bara när man utvecklar koden
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include "conn.php";
+$check = new Validator();
+
+// använder validator klassen på data som skickas från formuläret
+if (isset($_POST["submit"])) {
+    $check->set($_POST);
+    $check->validateUsername();
+    $check->validatePassword();
+    $check->validateEmail();
+}
 ?>
 
 <?php
 
 // Ta emot data och skydda från hot
-$fnamn = $_POST['fnamn'];
+$fnamn = filter_input(INPUT_POST, "fnamn", FILTER_SANITIZE_STRING);
 $enamn = filter_input(INPUT_POST, "enamn", FILTER_SANITIZE_STRING);
 $mail = filter_input(INPUT_POST, "mail", FILTER_SANITIZE_STRING);
 $pass1 = filter_input(INPUT_POST, "pass1", FILTER_SANITIZE_STRING);
@@ -38,11 +51,17 @@ if ($fnamn && $enamn && $mail && $pass1 && $pass2) {
             //Räkna ut hash på lösenordet
             $hash = password_hash($pass1, PASSWORD_DEFAULT);
 
-            $sql = "INSERT INTO 'logIn' ( fnamn, enamn, mail, hash)VALUES ('$fnamn', '$enamn', '$mail', '$hash')";
-            $result = $conn->query($sql);
+            $sql = "INSERT INTO `logIn`(`fnamn`, `enamn`, `mail`, `hash`) VALUES ('$fnamn', '$enamn', '$mail', '$hash')";
+            echo "<p>$sql</p>";
 
             // Kör sql satsen
-            $conn->query($sql);
+            $result = $conn->query($sql);
+
+            if (!$result) {
+                die("Något blev fel med SQL-satsen." . $conn->error);
+            } else {
+                echo "<p class=\"alert alert-success\">Inläggets har registrerats.</p>";
+            } 
             echo "<p class=\"alert alert-success\">Användarenregistrerad</p>";
 
             // Stäng ned anslutningen
@@ -51,6 +70,8 @@ if ($fnamn && $enamn && $mail && $pass1 && $pass2) {
     } else {
         echo "<p class=\"alert alert-warning\">Lösenorden matchar inte,försök igen</p>";
     }
+  
     echo $sql;
-}
+}  header("Location: ../index.html");
+    exit;
 ?>
