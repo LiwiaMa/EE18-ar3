@@ -48,14 +48,20 @@
 
         <section id="sec2">
             <main>
-                <div class="item2" data-aos="fade-left">
-                        <div class="img-hoder"><img src="../bilder/shot-by-cerqueira-0o_GEzyargo-unsplash.jpg" alt="">
-                        </div>
-
-                        <figcaption class="fig">Space</figcaption>
-                        <button class="popup" onclick="myFunction()">Do you wanna know a fun fact?
-                            <span class="popuptext" id="myPopup">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis nihil tenetur fuga, reiciendis temporibus distinctio sapiente necessitatibus odit corrupti accusantium quod deserunt eum, tempore culpa architecto magni? Quibusdam, ipsam?</span>
-                        </button>
+                <div class="holder">
+                    <div class="item3">
+                            <div class="img-hoder">
+                                <h1 class="m-h1">hhh</h1>
+                            </div>
+                            <figcaption class="fig">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, culpa optio rem laborum repudiandae doloremque ipsum ullam explicabo, fugit tenetur debitis alias, excepturi molestiae voluptatum velit. Quidem reprehenderit vero ab.</figcaption>
+                            <button class="popup" onclick="myFunction()">Fun fact
+                                <span class="popuptext" id="myPopup"></span>
+                            </button>
+                    
+                    </div>
+                    <div class="images">
+                        <img src="../bilder/jim-beaudoin-pFoq-2zg82g-unsplash.jpg" alt="">
+                    </div>
                 </div>
             </main>
             <footer>
@@ -64,11 +70,14 @@
         </section>
 
     </div>
+    <script src="./api.js"></script>
     <script>
+
         // When the user clicks on div, open the popup
         function myFunction() {
           var popup = document.getElementById("myPopup");
           popup.classList.toggle("show");
+          
         }
         </script>
     <script>

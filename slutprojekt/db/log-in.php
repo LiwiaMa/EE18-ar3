@@ -6,7 +6,7 @@
  * @author     Liwia Matuszczak <liwiamatuszczak.@gmail.com>
  * @license    PHP CC
  */
-include "./resurser/conn.php";
+include "./db/resurser/conn.php";
 session_start();
 ?>
 
@@ -47,14 +47,16 @@ if ($mail && $pass) {
             $_SESSION["antal"] = $antal;
             $_SESSION["user_id"] = $rad["id"];
 
-            // Hoppa till sidan welcome
-           
+            $conn->close();
+
+            // Hoppa till menu
+            header("Location: ../menu.html");
         } else {
             //Fel
             echo "<p class=\"alert alert-warning\">Lösenordet stämmer inte</p>";
         }
     }
-} header("Location: ./menu.html");
+} 
 ?>
 </body>
 </html>

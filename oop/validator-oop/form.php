@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include "./classes/Validator.php";
+include "classes/Validator.php";
 $check = new Validator();
 
 // använder validator klassen på data som skickas från formuläret

@@ -6,11 +6,14 @@
  * @author     Liwia Matuszczak <liwiamatuszczak.@gmail.com>
  * @license    PHP CC
  */
-// kod som säger var bug finns, används bara när man utvecklar koden
+// kod som säger var bug finns
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include "conn.php";
+
+require "conn.php";
+
+require "./class/Validator.php";
 $check = new Validator();
 
 // använder validator klassen på data som skickas från formuläret
@@ -21,6 +24,7 @@ if (isset($_POST["submit"])) {
     $check->validateEmail();
 }
 ?>
+
 
 <?php
 
@@ -40,7 +44,7 @@ if ($fnamn && $enamn && $mail && $pass1 && $pass2) {
     $sql = "SELECT * FROM 'logIn' WHERE mail = $mail";
     $result = $conn->query($sql);
 
-    // Kontrollera om lösenordet matchar
+     // Kontrollera om lösenordet matchar
     if ($pass1 == $pass2) {
         $result = $conn->query($sql);
 
@@ -66,12 +70,13 @@ if ($fnamn && $enamn && $mail && $pass1 && $pass2) {
 
             // Stäng ned anslutningen
             $conn->close();
+            header("Location: ../index.html");
         }
     } else {
         echo "<p class=\"alert alert-warning\">Lösenorden matchar inte,försök igen</p>";
-    }
+    }   
   
-    echo $sql;
-}  header("Location: ../index.html");
-    exit;
+    //echo $sql;
+} 
+    //exit;
 ?>
