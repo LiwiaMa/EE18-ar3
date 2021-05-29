@@ -45,7 +45,7 @@ if ($fnamn && $enamn && $mail && $pass1 && $pass2) {
     $result = $conn->query($sql);
 
      // Kontrollera om lösenordet matchar
-    if ($pass1 == $pass2) {
+     if ($pass1 == $pass2) {
         $result = $conn->query($sql);
 
         // Om användarnamnet  finns går vidare skriv ut en varning
@@ -74,7 +74,7 @@ if ($fnamn && $enamn && $mail && $pass1 && $pass2) {
         }
     } else {
         echo "<p class=\"alert alert-warning\">Lösenorden matchar inte,försök igen</p>";
-    }   
+    }    
   
     //echo $sql;
 } 

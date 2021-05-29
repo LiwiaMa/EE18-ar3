@@ -495,13 +495,27 @@ figcaption {
         grid-template-columns: 1fr;
   }
   .coontainer h1 {
-    font-size: 20px;
+    font-size: 30px;
   }
   .box1 {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+  }
+  .title1 {
+    height: 99vh;
+    text-align: center;
+    width: 100vw;
+  }
+  .button-down {
+    display: block;
+  }
+  .button-wrapper {
+    width: 70%;
+  }
+  .button {
+    font-size: 18px;
   }
 }
 
@@ -539,5 +553,9 @@ figcaption {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+.button-down {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

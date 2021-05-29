@@ -6,7 +6,7 @@
  * @author     Liwia Matuszczak <liwiamatuszczak.@gmail.com>
  * @license    PHP CC
  */
-include "./db/resurser/conn.php";
+include "conn.php";
 session_start();
 ?>
 
@@ -28,8 +28,8 @@ if ($mail && $pass) {
         // Plocka ut hashet för användaren
         $rad = $result->fetch_assoc();
         $hash = $rad['hash'];
-        /* var_dump($rad);
-                exit; */
+        var_dump($rad);
+                exit; 
         // Kontrollera lösenordet
         if (password_verify($pass, $hash)) {
             // Inloggad
@@ -54,6 +54,7 @@ if ($mail && $pass) {
         } else {
             //Fel
             echo "<p class=\"alert alert-warning\">Lösenordet stämmer inte</p>";
+       
         }
     }
 } 

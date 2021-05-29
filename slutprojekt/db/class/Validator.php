@@ -25,20 +25,23 @@ class Validator
 
     public function validatePassword()
     {
-        if (!preg_match("/[a-zåäö]/", $this->data["pass1"]["pass2"]) > 0) {
-            $this->errors['pass1']['pass2'][] = '&#10005;pass1 must contain a least one lowercase character<br>';
+        if (!preg_match("/[a-zåäö]/", $this->data["pass1"]) > 0) {
+            $this->errors['pass1'][] = '&#10005;pass1 must contain a least one lowercase character<br>';
         }
-        if (!preg_match("/[A-ZÅÄÖ]/", $this->data["pass1"]["pass2"]) > 0) {
-            $this->errors['pass1']['pass2'][] = '&#10005; pass1 must contain a least one uppercase character<br>';
+        if (!preg_match("/[A-ZÅÄÖ]/", $this->data["pass1"]) > 0) {
+            $this->errors['pass1'][] = '&#10005; pass1 must contain a least one uppercase character<br>';
         }
-        if (!preg_match("/[0-9]/", $this->data["pass1"]["pass2"]) > 0) {
-            $this->errors['pass1']['pass2'][] = '&#10005; pass1 must contain a least one alphanumeric<br>';
+        if (!preg_match("/[0-9]/", $this->data["pass1"]) > 0) {
+            $this->errors['pass1'][] = '&#10005; pass1 must contain a least one alphanumeric<br>';
         }
         if (!preg_match("/[#%&¤_\*\-\+\@\!\?\(\)\[\]\$£€]/", $this->data["pass1"]) > 0) {
-            $this->errors['pass1']['pass2'][] = '&#10005; pass1 must contain a least one special character<br>';
+            $this->errors['pass1'][] = '&#10005; pass1 must contain a least one special character<br>';
         }
         if (!preg_match("/^.{8,40}$/", $this->data["pass1"]) > 0) {
-            $this->errors['pass1']['pass2'][] = '&#10005; pass1 must at least 8 character long<br>';
+            $this->errors['pass1'][] = '&#10005; pass1 must at least 8 character long<br>';
+        }
+        if (!preg_match("/^.{8,40}$/", $this->data["pass1"]) > 0) {
+            $this->errors['pass1'][] = '&#10005; pass1 must at least 8 character long<br>';
         }
     }
     public function validateEmail()
@@ -60,4 +63,5 @@ class Validator
     }
 
     }
+   
 }
