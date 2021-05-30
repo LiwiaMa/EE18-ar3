@@ -64,5 +64,3 @@ if ($mail && $pass) {
     }
 } 
 ?>
-</body>
-</html>
