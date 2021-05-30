@@ -16,6 +16,8 @@ require "conn.php";
 require "./class/Validator.php";
 $check = new Validator();
 
+
+
 // använder validator klassen på data som skickas från formuläret
 if (isset($_POST["submit"])) {
     $check->set($_POST);

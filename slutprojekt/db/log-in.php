@@ -6,6 +6,11 @@
  * @author     Liwia Matuszczak <liwiamatuszczak.@gmail.com>
  * @license    PHP CC
  */
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 include "conn.php";
 session_start();
 ?>
@@ -18,7 +23,7 @@ $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_STRING);
 // Kontrollera om data finns
 if ($mail && $pass) {
     // Finns användaren i tabellen?
-    $sql = "SELECT * FROM 'logIn' WHERE mail = '$mail'";
+    $sql = "SELECT * FROM 'logIn' WHERE mail = $mail";
     $result = $conn->query($sql);
 
     if ($result->num_rows == 0) {
@@ -38,14 +43,14 @@ if ($mail && $pass) {
             // Skapa en sessionsvariabel
             $_SESSION["mail"] = $mail;
 
-            // Räkna antal
-            $antal = $rad['antal'] + 1;
+             // Räkna antal
+            $antal = $rad['antal'] + 1; 
             //Registrera ny inloggning
-            $sql = "UPDATE user SET antal = '$antal' WHERE id = $rad[id]";
+             $sql = "UPDATE 'logIn' SET antal = '$antal' WHERE id = $rad[id]";
             $conn->query($sql);
-            // Skapa en sessionsvariabel
+            //  sessionsvariabel
             $_SESSION["antal"] = $antal;
-            $_SESSION["user_id"] = $rad["id"];
+            $_SESSION["user_id"] = $rad["id"]; 
 
             $conn->close();
 
