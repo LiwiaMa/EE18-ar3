@@ -22,7 +22,7 @@ $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_STRING);
 
 //var_dump($mail, $pass);
 
-// Kontrollera om data finns
+// Kontroll om data finns
 if ($mail && $pass) {
     // Finns användaren i tabellen?
     $sql = "SELECT * FROM logIn WHERE mail = '$mail'";
@@ -38,15 +38,15 @@ if ($mail && $pass) {
         $hash = $rad['hash'];
         //var_dump($rad);
          
-        // Kontrollera lösenordet
+        // Kontroll för lösenordet
         if (password_verify($pass, $hash)) {
             // Inloggad
             echo "<p class=\"alert alert-success\">Du är inloggad</p>";
 
-            // Skapa en sessionsvariabel
+            // sessionsvariabel
             $_SESSION["mail"] = $mail;
 
-            // Räkna antal
+            // Räkna hur många gånger man har loggat in (registreras i db)
             $antal = $rad['antal'] + 1;
             //Registrera ny inloggning
             $sql = "UPDATE logIn SET antal = '$antal' WHERE id = $rad[id]";

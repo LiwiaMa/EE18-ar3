@@ -12,18 +12,27 @@
 </head>
 
 <style>
-  
     /* Add animation (fade in the popup) */
     @-webkit-keyframes fadeIn {
-      from {opacity: 0;} 
-      to {opacity: 1;}
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
-    
+
     @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity:1 ;}
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
-    </style>
+</style>
 <body>
     <div class="kontainer">
         <div id="mySidenav" class="sidenav">
@@ -50,14 +59,16 @@
             <main>
                 <div class="holder">
                     <div class="item3">
-                            <div class="img-hoder">
-                                <h1 class="m-h1">Lorem ipsum dolor</h1>
-                            </div>
-                            <figcaption class="fig">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, culpa optio rem laborum repudiandae doloremque ipsum ullam explicabo, fugit tenetur debitis alias, excepturi molestiae voluptatum velit. Quidem reprehenderit vero ab.</figcaption>
-                            <button class="popup" onclick="myFunction()">Fun fact
-                                <span class="popuptext" id="myPopup"></span>
-                            </button>
-                    
+                        <div class="img-hoder">
+                            <h1 class="m-h1">Lorem ipsum dolor</h1>
+                        </div>
+                        <figcaption class="fig">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, culpa
+                            optio rem laborum repudiandae doloremque ipsum ullam explicabo, fugit tenetur debitis alias,
+                            excepturi molestiae voluptatum velit. Quidem reprehenderit vero ab.</figcaption>
+                        <button class="popup" onclick="myFunction()">Fun fact
+                            <span class="popuptext" id="myPopup"></span>
+                        </button>
+
                     </div>
                     <div class="images">
                         <img src="../bilder/sergei-akulich--heLWtuAN3c-unsplash.jpg" alt="">
@@ -75,11 +86,11 @@
 
         // When the user clicks on div, open the popup
         function myFunction() {
-          var popup = document.getElementById("myPopup");
-          popup.classList.toggle("show");
-          
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+
         }
-        </script>
+    </script>
     <script>
 
         AOS.init({
@@ -93,10 +104,10 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
-      
-      
+
+
     </script>
-    
+
 
 </body>
 </html>

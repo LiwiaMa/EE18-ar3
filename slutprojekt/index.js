@@ -22,7 +22,7 @@ eKnapp.addEventListener("click", function(e) {
     .then(response => response.text())
     .then(data => {
         console.log(data);
-        
+        // Skriver ut errors
      eErrors.innerHTML=data;
     })
   

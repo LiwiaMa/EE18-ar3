@@ -11,9 +11,9 @@
 
 class Validator
 {
-    // Användarnamnet måste vara 6-12 tecken långt, stora och små bokstäver, samt siffror
+    
     private $errors = [];
-
+    // Funktion till validator av förnamn (om man skrev in rätt)
     public function validateName($data)
     {
         //var_dump($data);
@@ -24,6 +24,7 @@ class Validator
             $this->errors[] = "<p>&#10005; First name doesn't include A-Z</p>"; 
        }
     }
+    // validator för efternamn
     public function validateLastname($data)
     {
         //var_dump($data);
@@ -40,6 +41,7 @@ class Validator
         $this->data = $postdata;
     }
 
+    // Validator för lösenordet
 
     public function validatePass($data)
     {

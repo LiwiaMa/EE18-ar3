@@ -42,15 +42,15 @@ if ($fnamn && $enamn && $mail && $pass1 && $pass2) {
     } else {
         
 
-    // kontrollera att användarnamnet inte redan finns!
+    // kontroll om användarnamnet inte redan finns!
     $sql = "SELECT * FROM 'logIn' WHERE mail = $mail";
     $result = $conn->query($sql);
 
-    // Kontrollera om lösenordet matchar
+    // Kontroll om lösenordet matchar
     if ($pass1 == $pass2) {
         $result = $conn->query($sql);
 
-        // Om användarnamnet  finns går vidare skriv ut en varning
+        // Om användarnamnet finns, gå vidare skriv ut en varning
         if ($result->num_rows != 0) {
             echo "<p class=\"alert alert-warning\">Användarnamnet finnsredan, försök igen</p>";
         } else {

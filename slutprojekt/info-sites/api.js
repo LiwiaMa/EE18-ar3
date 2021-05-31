@@ -9,6 +9,7 @@ eKnapp.addEventListener("click", function() {
      .then(response => response.text())
     .then(data => {
         console.log(data);
+        // skriv in api till popup ruta som kommer efter man har klickat på knappen
         document.querySelector("#myPopup").innerHTML = data;
    
     })
