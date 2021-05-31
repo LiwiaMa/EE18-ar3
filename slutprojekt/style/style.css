@@ -205,8 +205,8 @@ main {
 }
 
 .sidenav {
-  height: 40%;
-  width: 40%;
+  height: 30%;
+  width: 70%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -223,9 +223,10 @@ main {
   text-decoration: none;
   font-size: 25px;
   color: #818181;
-  display: block;
+  /** display: block **/
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  display: inline;
 }
 
 .sidenav a:hover {
