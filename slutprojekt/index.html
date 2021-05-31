@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="coontainer">
         <div class="title1">
@@ -28,9 +29,9 @@
                     <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#geoModal2">
                         Sign up
                     </button>
-                    <button type="button" class="button">
+                    <!-- <button type="button" class="button">
                         <a href="./menu.html"> Try 3 days for free</a>
-                    </button>
+                    </button> -->
                 </div>
 
                 <!-- Modal -->
@@ -41,7 +42,7 @@
                             <h2>Welcome!</h2>
                             <form action="./db/log-in.php" method="POST">
                                 <div class="inputBox">
-                                    <input type="text" name="email" required>
+                                    <input type="text" name="mail" required>
                                     <label>Email</label> 
                                 </div>
                                 <div class="inputBox">
@@ -59,7 +60,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content inloggningsBox">
                             <h2>Welcome!</h2>
-                            <form action="./db/registrera.php" method="POST">
+                            <form action="./db/registrera.php" method="POST" id="registrera">
                                 <div class="inputBox">
                                     <input type="text" name="fnamn" required>
                                     <label>First name</label> 
@@ -82,6 +83,7 @@
                                 </div>
                                 <p>* Your information will be used just for register. It will not be published anywhere.</p>
                                 <input id="sign-up" type="submit" name="sign-up" value="Sign up">
+                                <div class="errors"></div>
                             </form>
                         </div>
                     </div>
@@ -92,26 +94,7 @@
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
     crossorigin="anonymous"></script>
 
-    <script>
-    //
-    function logIn(e) {
-        var email = e.mail;
-        var pass = e.pass;
-
-        // omvandla till post paket
-        var postData = new FormData();
-        postData.append("mail", mail);
-        postData.append("pass", pass);
-    // Ta emot svaret
-            fetch("./db/log-in.php", {
-                // simulerar formulär (Skickar via POST) ungefär som ett formulär
-                method: "POST",
-                body: postData
-
-            })
-    }
-
-    </script>
+    
   <script src="./index.js"></script> 
 </body>
 </html>

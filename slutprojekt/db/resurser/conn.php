@@ -1,6 +1,6 @@
 <?php
 // Slå på fel meddelanden
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 
 // Inloggningsuppgifter till vårt databas
 $host = "localhost";
@@ -16,7 +16,7 @@ $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     die("Kunde inte ansluta: " . $conn->connect_error);
 } else {
-    echo "<p class=\"anslut\">Gick bra att ansluta till vårt databas</p>";
+    /* echo "<p class=\"anslut\">Gick bra att ansluta till vårt databas</p>"; */
 }
 
 // Gick det bra?

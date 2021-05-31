@@ -7,15 +7,32 @@
  * @author     Liwia Matuszczak <liwiamatuszczak.@gmail.com>
  * @license    PHP CC
  */
+
+
 class Validator
 {
-    private  $errors = [];
-    private $data;
-    function validateUsername()
+    // Användarnamnet måste vara 6-12 tecken långt, stora och små bokstäver, samt siffror
+    private $errors = [];
+
+    public function validateName($data)
     {
-        if (!preg_match("/[a-zA- Z0-9] {6,12}", $this->data)) {
-            $this->errors['fnman'][] = "&#10005; Innehåller inte a-z, A_Z, 0-9<";
+        //var_dump($data);
+        if (!preg_match("/[a-zA-Z]/", $data)) {
+             $this->errors[] = "<p>&#10005; First name doesn't include a-z</p>"; 
         }
+        if (!preg_match("/[A-ZÅÄÖ]/", $data)) {
+            $this->errors[] = "<p>&#10005; First name doesn't include A-Z</p>"; 
+       }
+    }
+    public function validateLastname($data)
+    {
+        //var_dump($data);
+        if (!preg_match("/[a-zA-Z]/", $data)) {
+             $this->errors[] = "<p>&#10005; Last name doesn't include a-z</p>"; 
+        }
+        if (!preg_match("/[A-ZÅÄÖ]/", $data)) {
+            $this->errors[] = "<p>&#10005; Last name doesn't include A-Z</p>"; 
+       }
     }
     // Methods
     public function set($postdata)
@@ -23,45 +40,34 @@ class Validator
         $this->data = $postdata;
     }
 
-    public function validatePassword()
+
+    public function validatePass($data)
     {
-        if (!preg_match("/[a-zåäö]/", $this->data["pass1"]) > 0) {
-            $this->errors['pass1'][] = '&#10005;pass1 must contain a least one lowercase character<br>';
+        if (!preg_match("/[a-zåäö]/", $data) > 0) {
+             $this->errors[] = '&#10005;password must contain a least one lowercase character<br>'; 
         }
-        if (!preg_match("/[A-ZÅÄÖ]/", $this->data["pass1"]) > 0) {
-            $this->errors['pass1'][] = '&#10005; pass1 must contain a least one uppercase character<br>';
+        if (!preg_match("/[A-ZÅÄÖ]/", $data) > 0) {
+             $this->errors[] = '&#10005; password must contain a least one uppercase character<br>'; 
         }
-        if (!preg_match("/[0-9]/", $this->data["pass1"]) > 0) {
-            $this->errors['pass1'][] = '&#10005; pass1 must contain a least one alphanumeric<br>';
+        if (!preg_match("/[0-9]/", $data) > 0) {
+             $this->errors[] = '&#10005; password must contain a least one alphanumeric<br>'; 
         }
-        if (!preg_match("/[#%&¤_\*\-\+\@\!\?\(\)\[\]\$£€]/", $this->data["pass1"]) > 0) {
-            $this->errors['pass1'][] = '&#10005; pass1 must contain a least one special character<br>';
+        if (!preg_match("/[#%&¤_\*\-\+\@\!\?\(\)\[\]\$£€]/", $data) > 0) {
+           $this->errors[] = '&#10005; password must contain a least one special character<br>'; 
         }
-        if (!preg_match("/^.{8,40}$/", $this->data["pass1"]) > 0) {
-            $this->errors['pass1'][] = '&#10005; pass1 must at least 8 character long<br>';
-        }
-        if (!preg_match("/^.{8,40}$/", $this->data["pass1"]) > 0) {
-            $this->errors['pass1'][] = '&#10005; pass1 must at least 8 character long<br>';
+        if (!preg_match("/^.{8,40}$/", $data) > 0) {
+            $this->errors[] = '&#10005; password must at least 8 character long<br>'; 
         }
     }
-    public function validateEmail()
+    public function validateMail($data)
     {
-        if (!filter_var($this->data["mail"], FILTER_VALIDATE_EMAIL)) {
-            $this->errors['mail'][] = "<p>&#10005;Invalid email format</p>";
+        if (!filter_var($data, FILTER_VALIDATE_EMAIL)) {
+           $this->errors[] = "<p>&#10005;Invalid email format</p>"; 
         }
     }
 
-    public function showErrors($type)
+    public function showErrors()
     {
-        if (array_key_exists($type, $this->errors)) {
-            # code...
-        echo "<p>";
-        foreach ($this->errors[$type] as $error) {
-            echo $error;
-        }
-        echo "</p>";
+        return $this->errors;
     }
-
-    }
-   
 }

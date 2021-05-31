@@ -10,7 +10,7 @@
 class Validator
 {
     private  $errors = [];
-   
+    private $data;
     function validateUsername()
     {
         if (!preg_match("/[a-zA- Z0-9] {6,12}", $this->data)) {
@@ -52,12 +52,12 @@ class Validator
     {
         if (array_key_exists($type, $this->errors)) {
             # code...
-            echo "<p>";
-            foreach ($this->errors[$type] as $error) {
-                echo $error;
-            }
-            echo "</p>";
+        echo "<p>";
+        foreach ($this->errors[$type] as $error) {
+            echo $error;
         }
+        echo "</p>";
+    }
 
     }
 }

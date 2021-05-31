@@ -20,21 +20,24 @@ session_start();
 $mail = filter_input(INPUT_POST, "mail", FILTER_SANITIZE_STRING);
 $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_STRING);
 
+//var_dump($mail, $pass);
+
 // Kontrollera om data finns
 if ($mail && $pass) {
     // Finns användaren i tabellen?
-    $sql = "SELECT * FROM 'logIn' WHERE mail = $mail";
+    $sql = "SELECT * FROM logIn WHERE mail = '$mail'";
+    //var_dump($sql);
     $result = $conn->query($sql);
 
-    if ($result->num_rows == 0) {
-        echo "<p class=\"alert alert-warning\">Användaren finns redan</p>";
+    if (!$result) {
+        die("Något blev fel med SQL-satsen." . $conn->error);
     } else {
 
         // Plocka ut hashet för användaren
         $rad = $result->fetch_assoc();
         $hash = $rad['hash'];
-        var_dump($rad);
-                exit; 
+        //var_dump($rad);
+         
         // Kontrollera lösenordet
         if (password_verify($pass, $hash)) {
             // Inloggad
@@ -43,14 +46,15 @@ if ($mail && $pass) {
             // Skapa en sessionsvariabel
             $_SESSION["mail"] = $mail;
 
-             // Räkna antal
-            $antal = $rad['antal'] + 1; 
+            // Räkna antal
+            $antal = $rad['antal'] + 1;
             //Registrera ny inloggning
-             $sql = "UPDATE 'logIn' SET antal = '$antal' WHERE id = $rad[id]";
+            $sql = "UPDATE logIn SET antal = '$antal' WHERE id = $rad[id]";
             $conn->query($sql);
+           // var_dump($sql);
             //  sessionsvariabel
             $_SESSION["antal"] = $antal;
-            $_SESSION["user_id"] = $rad["id"]; 
+            $_SESSION["user_id"] = $rad["id"];
 
             $conn->close();
 
@@ -58,9 +62,8 @@ if ($mail && $pass) {
             header("Location: ../menu.html");
         } else {
             //Fel
-            echo "<p class=\"alert alert-warning\">Lösenordet stämmer inte</p>";
-       
+            echo "<p class=\"alert alert-warning\">Lösenordet stämmer ej</p>";
         }
     }
-} 
+}
 ?>
