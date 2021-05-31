@@ -72,6 +72,10 @@ body {
   color: #0c0ccf;
 }
 
+.button-down {
+  display: none;
+}
+
 .title1 {
   margin: auto;
   width: 380px;
@@ -201,8 +205,8 @@ main {
 }
 
 .sidenav {
-  height: 100%;
-  width: 0;
+  height: 40%;
+  width: 40%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -250,7 +254,9 @@ span {
   }
 }
 
-/** moving box-menu: just box **/
+/*************************************/
+/*         Moving box (menu)          / */
+/*************************************/
 .item1 {
   width: 29vw;
   height: 32vh;
@@ -305,44 +311,6 @@ figcaption {
 .item1 a {
   font-family: "Lato", sans-serif;
   text-decoration: none;
-}
-
-/*************************************/
-/*              Earth                 / */
-/*************************************/
-.kontainer h3 {
-  color: #FFF;
-  font-size: 80px;
-  font-family: "Lato", sans-serif;
-  font-weight: bold;
-}
-
-.item3 {
-  width: 49vw;
-  height: 32vh;
-  padding-top: 14px;
-  text-align: center;
-  font-size: 3em;
-  /**margin-top: 90px **/
-  margin: 80px 0 200px 200px;
-}
-
-.m-h1 {
-  font-size: 40px;
-  font-weight: bold;
-  font-family: "Lato", sans-serif;
-  color: #FFF;
-  margin-bottom: 15px;
-  -webkit-text-decoration: underline 3px;
-          text-decoration: underline 3px;
-}
-
-.fig {
-  font-family: "Lato", sans-serif;
-  color: #fff;
-  font-size: 0.6em;
-  margin-bottom: 15px;
-  width: 35vw;
 }
 
 /*************************************/
@@ -402,6 +370,7 @@ figcaption {
 
 .inloggningsBox input[type="submit"] {
   background: transparent;
+  margin-bottom: 20px;
   border: none;
   outline: none;
   color: #05055A;
@@ -421,9 +390,16 @@ figcaption {
 .modal-content.inloggningsBox {
   background: #f5efefe7;
   margin-top: 320px;
-  /* Popup container - can be anything you want */
 }
 
+/** errors from validator **/
+.modal-content .errors {
+  color: red;
+}
+
+/*************************************/
+/*              Popup                 / */
+/*************************************/
 .popup {
   position: relative;
   display: inline-block;
@@ -489,6 +465,9 @@ figcaption {
   width: 60%;
 }
 
+/*************************************/
+/*         Responsive index           / */
+/*************************************/
 @media (max-width: 600px) {
   .coontainer {
     -ms-grid-columns: 1fr;
@@ -529,6 +508,57 @@ figcaption {
   }
 }
 
+/*************************************/
+/*              Earth                 / */
+/*************************************/
+.kontainer h3 {
+  color: #FFF;
+  font-size: 80px;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+}
+
+.item3 {
+  width: 49vw;
+  height: 32vh;
+  padding-top: 14px;
+  text-align: center;
+  font-size: 3em;
+  /**margin-top: 90px **/
+  margin: 80px 0 200px 200px;
+}
+
+.m-h1 {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+  color: #FFF;
+  margin-bottom: 15px;
+  -webkit-text-decoration: underline 3px;
+          text-decoration: underline 3px;
+}
+
+.fig {
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  font-size: 0.6em;
+  margin-bottom: 15px;
+  width: 35vw;
+}
+
+.holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+/*************************************/
+/*              API                   / */
+/*************************************/
 .pTitle {
   font-family: "Lato", sans-serif;
   font-weight: bold;
@@ -543,23 +573,5 @@ figcaption {
 .pDate {
   font-family: "Lato", sans-serif;
   font-size: 20px;
-}
-
-.holder {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.button-down {
-  display: none;
-}
-
-.modal-content .errors {
-  color: red;
 }
 /*# sourceMappingURL=style.css.map */
