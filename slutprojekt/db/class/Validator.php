@@ -45,14 +45,14 @@ class Validator
 
     public function validatePass($data)
     {
-        if (!preg_match("/[a-zåäö]/", $data) > 0) {
-             $this->errors[] = '&#10005;password must contain a least one lowercase character<br>'; 
+        if (!preg_match("/[a-zåäö][A-ZÅÄÖ]/", $data) > 0) {
+             $this->errors[] = '&#10005;password must contain a least one lowercase and Uppercase character<br>'; 
         }
-        if (!preg_match("/[A-ZÅÄÖ]/", $data) > 0) {
-             $this->errors[] = '&#10005; password must contain a least one uppercase character<br>'; 
-        }
-        if (!preg_match("/[0-9]/", $data) > 0) {
-             $this->errors[] = '&#10005; password must contain a least one alphanumeric<br>'; 
+       /*  if (!preg_match("/[A-ZÅÄÖ]/", $data) > 0) {
+             $this->errors[] = '&#10005; password must contain a least one uppercase character<br>'; } */
+
+            if (!preg_match("/[0-9]/", $data) > 0) {
+             $this->errors[] = '&#10005; password must contain a least one number<br>'; 
         }
         if (!preg_match("/[#%&¤_\*\-\+\@\!\?\(\)\[\]\$£€]/", $data) > 0) {
            $this->errors[] = '&#10005; password must contain a least one special character<br>'; 
